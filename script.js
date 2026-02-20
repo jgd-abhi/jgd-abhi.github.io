@@ -1,56 +1,68 @@
-// THEME SWITCH
-const themeSwitch = document.getElementById("themeSwitch");
-const redSwitch = document.getElementById("redSwitch");
+// THEME
+const themeSwitch=document.getElementById("themeSwitch");
+const redSwitch=document.getElementById("redSwitch");
 
-themeSwitch.addEventListener("change", () => {
+themeSwitch.onchange=()=>{
     document.body.classList.toggle("light");
     document.body.classList.remove("red");
-});
+};
 
-redSwitch.addEventListener("change", () => {
+redSwitch.onchange=()=>{
     document.body.classList.toggle("red");
     document.body.classList.remove("light");
-});
+};
 
-// TYPING
-const text = `
-$ whoami
-Abhijeet
+// LOOPING HERO TEXT
+const phrases=[
+"Building Reliable Cloud Platforms.",
+"Automating Scalable Deployments.",
+"Engineering CI/CD Pipelines.",
+"Managing Kubernetes Environments."
+];
 
-$ role
-DevOps Engineer
+let index=0;
+let charIndex=0;
+const loopText=document.getElementById("loopText");
 
-$ focus
-Cloud | Kubernetes | CI/CD | Automation
-`;
-
-let i=0;
-function type(){
-    if(i<text.length){
-        document.getElementById("typing").innerHTML+=text.charAt(i);
-        i++;
-        setTimeout(type,30);
+function typeLoop(){
+    if(charIndex<phrases[index].length){
+        loopText.textContent+=phrases[index][charIndex];
+        charIndex++;
+        setTimeout(typeLoop,50);
+    }else{
+        setTimeout(eraseLoop,1500);
     }
 }
-type();
 
-// SCROLL REVEAL
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-    reveals.forEach(el=>{
-        if(el.getBoundingClientRect().top<window.innerHeight-100){
-            el.classList.add("active");
+function eraseLoop(){
+    if(charIndex>0){
+        loopText.textContent=phrases[index].substring(0,charIndex-1);
+        charIndex--;
+        setTimeout(eraseLoop,30);
+    }else{
+        index=(index+1)%phrases.length;
+        setTimeout(typeLoop,200);
+    }
+}
+typeLoop();
+
+// STATS COUNTER
+function counter(id,target){
+    let count=0;
+    const el=document.getElementById(id);
+    const interval=setInterval(()=>{
+        count+=Math.ceil(target/100);
+        if(count>=target){
+            count=target;
+            clearInterval(interval);
         }
-    });
-});
+        el.textContent=count;
+    },20);
+}
 
-// PARALLAX
-window.addEventListener("scroll",()=>{
-    document.querySelectorAll("[data-speed]").forEach(el=>{
-        const speed=el.getAttribute("data-speed");
-        el.style.transform=`translateY(${window.scrollY*speed}px)`;
-    });
-});
+counter("projectsCount",8);
+counter("uptimeRate",98);
+counter("supportOps",12);
 
 // NETWORK
 const canvas=document.getElementById("network");
@@ -74,7 +86,6 @@ function animate(){
         n.x+=n.dx;n.y+=n.dy;
         if(n.x<0||n.x>canvas.width)n.dx*=-1;
         if(n.y<0||n.y>canvas.height)n.dy*=-1;
-
         ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--accent');
         ctx.fillRect(n.x,n.y,2,2);
     });
