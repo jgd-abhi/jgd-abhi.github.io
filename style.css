@@ -6,6 +6,14 @@
     --subtle: #94a3b8;
 }
 
+body.light {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --accent: #0284c7;
+    --text: #0f172a;
+    --subtle: #475569;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,56 +24,58 @@ body {
     font-family: monospace;
     background: var(--bg);
     color: var(--text);
-    overflow-x: hidden;
+    transition: 0.4s ease;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    background: var(--card);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 #particles {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 20%, #1e293b, #0f172a);
     z-index: -1;
 }
 
 .hero {
     text-align: center;
-    padding: 120px 20px 60px;
+    padding: 140px 20px 80px;
 }
 
 .terminal {
     background: var(--card);
-    padding: 30px;
-    border-radius: 12px;
+    padding: 40px;
+    border-radius: 14px;
     display: inline-block;
-    text-align: left;
-    box-shadow: 0 0 20px rgba(56,189,248,0.2);
+    box-shadow: 0 0 25px rgba(56,189,248,0.3);
+    min-width: 300px;
 }
 
-.line {
-    margin: 8px 0;
-}
-
-.highlight {
+#typing {
+    white-space: pre-line;
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--accent);
-}
-
-.hero-actions {
-    margin-top: 30px;
 }
 
 .btn {
     padding: 10px 20px;
-    margin: 5px;
+    margin: 10px;
     text-decoration: none;
     background: var(--accent);
     color: black;
     border-radius: 6px;
     font-weight: bold;
     transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
 }
 
 .btn.outline {
@@ -79,30 +89,69 @@ body {
     text-align: center;
 }
 
-.section h2 {
-    margin-bottom: 40px;
+.pipeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stage {
+    padding: 12px 20px;
+    background: var(--card);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    animation: pulse 2s infinite;
+}
+
+.stage.prod {
+    background: var(--accent);
+    color: black;
+}
+
+.arrow {
+    width: 30px;
+    height: 2px;
+    background: var(--accent);
+    position: relative;
+}
+
+.arrow::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: -4px;
+    border-left: 6px solid var(--accent);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px var(--accent); }
+    50% { box-shadow: 0 0 20px var(--accent); }
+    100% { box-shadow: 0 0 5px var(--accent); }
 }
 
 .badges {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .badges span {
+    padding: 8px 18px;
     background: var(--card);
-    padding: 10px 20px;
-    border-radius: 20px;
     border: 1px solid var(--accent);
+    border-radius: 20px;
     transition: 0.3s;
-    cursor: default;
 }
 
 .badges span:hover {
+    transform: translateY(-6px);
     background: var(--accent);
     color: black;
-    transform: translateY(-5px);
 }
 
 .repos {
@@ -115,19 +164,12 @@ body {
     background: var(--card);
     padding: 20px;
     border-radius: 12px;
-    text-align: left;
     transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .repo-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 20px rgba(56,189,248,0.2);
-}
-
-.repo-card a {
-    color: var(--accent);
-    text-decoration: none;
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(56,189,248,0.3);
 }
 
 footer {
