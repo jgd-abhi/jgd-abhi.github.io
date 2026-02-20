@@ -1,6 +1,6 @@
 :root {
-    --bg: #0f172a;
-    --card: #1e293b;
+    --bg: #0b1220;
+    --card: #111827;
     --accent: #38bdf8;
     --text: #f1f5f9;
     --subtle: #94a3b8;
@@ -14,17 +14,23 @@ body.light {
     --subtle: #475569;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
     font-family: monospace;
     background: var(--bg);
     color: var(--text);
+    overflow-x: hidden;
     transition: 0.4s ease;
+}
+
+canvas {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
 }
 
 .theme-toggle {
@@ -39,16 +45,9 @@ body {
     cursor: pointer;
 }
 
-#particles {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
 .hero {
     text-align: center;
-    padding: 140px 20px 80px;
+    padding: 150px 20px 80px;
 }
 
 .terminal {
@@ -56,124 +55,119 @@ body {
     padding: 40px;
     border-radius: 14px;
     display: inline-block;
-    box-shadow: 0 0 25px rgba(56,189,248,0.3);
-    min-width: 300px;
+    box-shadow: 0 0 30px rgba(56,189,248,0.4);
 }
 
-#typing {
-    white-space: pre-line;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--accent);
+.cursor {
+    animation: blink 1s infinite;
 }
 
-.btn {
-    padding: 10px 20px;
-    margin: 10px;
-    text-decoration: none;
-    background: var(--accent);
-    color: black;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn.outline {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 .section {
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
 }
 
 .pipeline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    position:relative;
 }
 
 .stage {
-    padding: 12px 20px;
-    background: var(--card);
-    border: 1px solid var(--accent);
-    border-radius: 8px;
-    animation: pulse 2s infinite;
+    padding:12px 20px;
+    border:1px solid var(--accent);
+    border-radius:8px;
+    background:var(--card);
 }
 
 .stage.prod {
-    background: var(--accent);
-    color: black;
+    background:var(--accent);
+    color:black;
 }
 
-.arrow {
-    width: 30px;
-    height: 2px;
-    background: var(--accent);
-    position: relative;
+.flow-line {
+    position:absolute;
+    bottom:-20px;
+    width:80%;
+    height:4px;
+    background:linear-gradient(90deg, transparent, var(--accent), transparent);
+    animation: flow 3s infinite linear;
 }
 
-.arrow::after {
-    content: "";
-    position: absolute;
-    right: -5px;
-    top: -4px;
-    border-left: 6px solid var(--accent);
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
+@keyframes flow {
+    0% { background-position:0% }
+    100% { background-position:200% }
 }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 5px var(--accent); }
-    50% { box-shadow: 0 0 20px var(--accent); }
-    100% { box-shadow: 0 0 5px var(--accent); }
+.architecture {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.architecture div {
+    padding:20px;
+    border:1px solid var(--accent);
+    border-radius:12px;
+    background:var(--card);
 }
 
 .badges {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
 .badges span {
-    padding: 8px 18px;
-    background: var(--card);
-    border: 1px solid var(--accent);
-    border-radius: 20px;
-    transition: 0.3s;
+    padding:8px 18px;
+    border:1px solid var(--accent);
+    border-radius:20px;
+    transition:0.3s;
 }
 
 .badges span:hover {
-    transform: translateY(-6px);
-    background: var(--accent);
-    color: black;
+    transform:translateY(-8px);
+    background:var(--accent);
+    color:black;
+}
+
+.reveal {
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 1s ease;
+}
+
+.reveal.active {
+    opacity:1;
+    transform:translateY(0);
 }
 
 .repos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
 
 .repo-card {
-    background: var(--card);
-    padding: 20px;
-    border-radius: 12px;
-    transition: 0.3s;
+    padding:20px;
+    border-radius:12px;
+    background:var(--card);
+    transition:0.3s;
 }
 
 .repo-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px rgba(56,189,248,0.3);
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(56,189,248,0.3);
 }
 
 footer {
-    text-align: center;
-    padding: 40px;
-    color: var(--subtle);
+    text-align:center;
+    padding:40px;
+    color:var(--subtle);
 }
