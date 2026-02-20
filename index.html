@@ -9,11 +9,18 @@
 </head>
 <body>
 
-<button id="themeToggle" class="theme-toggle">Toggle Mode</button>
+<div class="controls">
+    <button id="lightDarkToggle" class="icon-btn">
+        🌙
+    </button>
+    <button id="redThemeToggle" class="icon-btn">
+        🔴
+    </button>
+</div>
 
 <canvas id="network"></canvas>
 
-<header class="hero reveal">
+<header class="hero reveal" data-speed="0.2">
     <div class="terminal">
         <p id="typing"></p><span class="cursor">|</span>
     </div>
@@ -24,6 +31,24 @@
     </div>
 </header>
 
+<section class="section metrics reveal">
+    <h2>Production Metrics</h2>
+    <div class="metric-grid">
+        <div class="metric">
+            <h3 id="deployments">0</h3>
+            <p>Deployments Automated</p>
+        </div>
+        <div class="metric">
+            <h3 id="clusters">0</h3>
+            <p>Clusters Managed</p>
+        </div>
+        <div class="metric">
+            <h3 id="uptime">0</h3>
+            <p>% Uptime Reliability</p>
+        </div>
+    </div>
+</section>
+
 <section class="section reveal">
     <h2>Deployment Promotion Flow</h2>
     <div class="pipeline">
@@ -33,16 +58,6 @@
         <div class="stage">STG</div>
         <div class="stage prod">PROD</div>
         <div class="flow-line"></div>
-    </div>
-</section>
-
-<section class="section reveal">
-    <h2>Cloud Native Architecture</h2>
-    <div class="architecture">
-        <div>GitHub Actions</div>
-        <div>Container Registry</div>
-        <div>OpenShift Cluster</div>
-        <div>Monitoring & Logging</div>
     </div>
 </section>
 
