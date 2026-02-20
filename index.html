@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="DevOps Engineer | Cloud | Kubernetes | CI/CD | Automation">
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet"
  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -14,45 +15,59 @@
 <canvas id="network"></canvas>
 
 <header class="navbar">
-    <div class="nav-left">
+    <div class="brand">
         <strong>Abhijeet</strong>
-        <span class="role">DevOps Engineer</span>
+        <span>DevOps Engineer</span>
     </div>
 
-    <div class="nav-right">
+    <div class="toggles">
         <label class="switch">
             <input type="checkbox" id="themeSwitch">
             <span class="slider"></span>
         </label>
 
-        <label class="switch red-switch">
+        <label class="switch red">
             <input type="checkbox" id="redSwitch">
             <span class="slider"></span>
         </label>
-
-        <a href="resume.pdf" class="nav-btn" download>
-            <i class="fa-solid fa-file-arrow-down"></i> CV
-        </a>
-
-        <a href="https://github.com/jgd-abhi" target="_blank" class="nav-btn">
-            <i class="fa-brands fa-github"></i> GitHub
-        </a>
     </div>
 </header>
 
-<section class="hero" data-speed="0.15">
-    <div class="terminal glass">
-        <p id="typing"></p><span class="cursor">|</span>
-    </div>
+<section class="hero">
+    <div class="hero-content">
+        <h1 id="loopText"></h1>
+        <p class="subtitle">
+            Cloud-native automation • Kubernetes platforms • CI/CD engineering
+        </p>
 
-    <p class="tagline">
-        Worked on <strong>5+ live production projects</strong> 
-        and continuously expanding real-world DevOps expertise.
-    </p>
+        <div class="cta">
+            <a href="resume.pdf" class="btn primary" download>
+                <i class="fa-solid fa-file-arrow-down"></i> Download CV
+            </a>
+            <a href="https://github.com/jgd-abhi" target="_blank" class="btn secondary">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="stats reveal">
+    <div class="stat">
+        <h2 id="projectsCount">0</h2>
+        <p>Live Projects Delivered</p>
+    </div>
+    <div class="stat">
+        <h2 id="uptimeRate">0</h2>
+        <p>Deployment Reliability (%)</p>
+    </div>
+    <div class="stat">
+        <h2 id="supportOps">0</h2>
+        <p>CI/CD & DevOps Support Pipelines</p>
+    </div>
 </section>
 
 <section class="section reveal">
-    <h2>Experience & Technologies</h2>
+    <h2>Technologies & Platforms</h2>
     <div class="badges">
         <span>Linux</span>
         <span>Windows</span>
@@ -70,11 +85,11 @@
 </section>
 
 <section class="section reveal">
-    <h2>Live GitHub Projects</h2>
+    <h2>Selected Repositories</h2>
     <div id="repos" class="repos"></div>
 </section>
 
-<footer class="glass-footer">
+<footer class="footer-glass">
 © 2026 Abhijeet | DevOps Engineer
 </footer>
 
