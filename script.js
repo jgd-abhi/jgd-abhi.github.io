@@ -27,19 +27,19 @@ style.innerHTML = `
 document.head.appendChild(style);
 
 // GitHub Repo Auto Fetch
-fetch("https://api.github.com/users/jgd-abhi/repos")
-    .then(res => res.json())
-    .then(data => {
-        const reposContainer = document.getElementById("repos");
-        data.slice(0, 6).forEach(repo => {
-            const card = document.createElement("div");
-            card.classList.add("repo-card");
-            card.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>${repo.description || "No description available"}</p>
-                <a href="${repo.html_url}" target="_blank">View Repository</a>
-            `;
-            reposContainer.appendChild(card);
-        });
-    })
-    .catch(error => console.error(error));
+//fetch("https://api.github.com/users/jgd-abhi/repos")
+//    .then(res => res.json())
+//    .then(data => {
+//        const reposContainer = document.getElementById("repos");
+//        data.slice(0, 6).forEach(repo => {
+//            const card = document.createElement("div");
+//            card.classList.add("repo-card");
+//            card.innerHTML = `
+//                <h3>${repo.name}</h3>
+//                <p>${repo.description || "No description available"}</p>
+//                <a href="${repo.html_url}" target="_blank">View Repository</a>
+//           `;
+//            reposContainer.appendChild(card);
+//       });
+//    })
+//    .catch(error => console.error(error));
