@@ -1,4 +1,4 @@
-// LOOP HERO TEXT
+// HERO LOOP
 const phrases=[
 "Building Reliable Cloud Platforms.",
 "Automating Scalable Deployments.",
@@ -32,45 +32,52 @@ function eraseLoop(){
 }
 typeLoop();
 
-// NETWORK
+// LIGHTWEIGHT CANVAS
 const canvas=document.getElementById("network");
 const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+
+function resize(){
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener("resize",resize);
 
 let nodes=[];
-for(let i=0;i<30;i++){
+for(let i=0;i<20;i++){
     nodes.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        dx:(Math.random()-0.5),
-        dy:(Math.random()-0.5)
+        dx:(Math.random()-0.5)*0.5,
+        dy:(Math.random()-0.5)*0.5
     });
 }
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     nodes.forEach(n=>{
-        n.x+=n.dx;n.y+=n.dy;
-        ctx.fillStyle="rgba(59,130,246,0.6)";
+        n.x+=n.dx;
+        n.y+=n.dy;
+        if(n.x<0||n.x>canvas.width)n.dx*=-1;
+        if(n.y<0||n.y>canvas.height)n.dy*=-1;
+        ctx.fillStyle="rgba(59,130,246,0.4)";
         ctx.fillRect(n.x,n.y,2,2);
     });
     requestAnimationFrame(animate);
 }
 animate();
 
-// GITHUB FETCH
+// GITHUB
 fetch("https://api.github.com/users/jgd-abhi/repos?sort=updated")
 .then(res=>res.json())
 .then(data=>{
     const container=document.getElementById("repos");
     data.slice(0,6).forEach(repo=>{
         const card=document.createElement("div");
-        card.classList.add("repo-card");
+        card.className="tech-card";
         card.innerHTML=`
             <h3>${repo.name}</h3>
             <p>${repo.description||"DevOps Repository"}</p>
-            <a href="${repo.html_url}" target="_blank">View Repository</a>
         `;
         container.appendChild(card);
     });
