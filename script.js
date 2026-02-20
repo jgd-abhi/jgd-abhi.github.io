@@ -1,18 +1,4 @@
-// THEME
-const themeSwitch=document.getElementById("themeSwitch");
-const redSwitch=document.getElementById("redSwitch");
-
-themeSwitch.onchange=()=>{
-    document.body.classList.toggle("light");
-    document.body.classList.remove("red");
-};
-
-redSwitch.onchange=()=>{
-    document.body.classList.toggle("red");
-    document.body.classList.remove("light");
-};
-
-// LOOPING HERO TEXT
+// LOOP HERO TEXT
 const phrases=[
 "Building Reliable Cloud Platforms.",
 "Automating Scalable Deployments.",
@@ -46,24 +32,6 @@ function eraseLoop(){
 }
 typeLoop();
 
-// STATS COUNTER
-function counter(id,target){
-    let count=0;
-    const el=document.getElementById(id);
-    const interval=setInterval(()=>{
-        count+=Math.ceil(target/100);
-        if(count>=target){
-            count=target;
-            clearInterval(interval);
-        }
-        el.textContent=count;
-    },20);
-}
-
-counter("projectsCount",8);
-counter("uptimeRate",98);
-counter("supportOps",12);
-
 // NETWORK
 const canvas=document.getElementById("network");
 const ctx=canvas.getContext("2d");
@@ -71,7 +39,7 @@ canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let nodes=[];
-for(let i=0;i<40;i++){
+for(let i=0;i<30;i++){
     nodes.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
@@ -84,16 +52,14 @@ function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     nodes.forEach(n=>{
         n.x+=n.dx;n.y+=n.dy;
-        if(n.x<0||n.x>canvas.width)n.dx*=-1;
-        if(n.y<0||n.y>canvas.height)n.dy*=-1;
-        ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--accent');
+        ctx.fillStyle="rgba(59,130,246,0.6)";
         ctx.fillRect(n.x,n.y,2,2);
     });
     requestAnimationFrame(animate);
 }
 animate();
 
-// GITHUB
+// GITHUB FETCH
 fetch("https://api.github.com/users/jgd-abhi/repos?sort=updated")
 .then(res=>res.json())
 .then(data=>{
