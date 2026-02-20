@@ -1,66 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Abhijeet | DevOps Engineer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f4f6f8;
-            color: #333;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        h1 {
-            margin-bottom: 5px;
-        }
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-        .role {
-            font-weight: bold;
-        }
-        .contact {
-            margin-top: 10px;
-            color: #555;
-        }
-        ul {
-            margin-top: 5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhijeet | DevOps Engineer</title>
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --accent: #38bdf8;
+    --subtle: #94a3b8;
+}
+
+body.light {
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #0f172a;
+    --accent: #0284c7;
+    --subtle: #475569;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.4s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 0;
+}
+
+header {
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    animation: fadeIn 1.2s ease;
+}
+
+h1 {
+    font-size: 48px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-weight: 300;
+    color: var(--subtle);
+    margin: 10px 0 25px 0;
+}
+
+button.toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    border: 1px solid var(--accent);
+    transition: 0.3s;
+}
+
+button.toggle:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.section {
+    background: var(--card);
+    margin: 30px 0;
+    padding: 40px;
+    border-radius: 14px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.05);
+    animation: slideUp 1s ease forwards;
+    opacity: 0;
+}
+
+.section:nth-child(2) { animation-delay: 0.3s; }
+.section:nth-child(3) { animation-delay: 0.6s; }
+.section:nth-child(4) { animation-delay: 0.9s; }
+
+h3 {
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin: 8px 0;
+    color: var(--subtle);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--subtle);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 32px; }
+    .container { padding: 50px 0; }
+}
+</style>
 </head>
+
 <body>
-<div class="container">
 
-<h1>Abhijeet</h1>
-<p class="role">DevOps Engineer</p>
-<p class="contact">
-GitHub: github.com/jgd-abhi
-</p>
+<button class="toggle" onclick="toggleTheme()">Toggle Mode</button>
 
-<h2>Summary</h2>
-<p>
-DevOps Engineer with experience in OpenShift, Kubernetes, CI/CD, GitHub Actions, and AWS infrastructure automation.
-Focused on scalable deployments, container security, and production-grade architecture.
-</p>
+<header class="container">
+    <h1>Abhijeet</h1>
+    <h2>DevOps Engineer</h2>
+    <p>
+        <a href="https://github.com/jgd-abhi" target="_blank">
+            github.com/jgd-abhi
+        </a>
+    </p>
+</header>
 
-<h2>Skills</h2>
-<ul>
-<li>OpenShift, Kubernetes, Docker</li>
-<li>AWS, GCP</li>
-<li>GitHub Actions, CI/CD</li>
-<li>Linux, Shell Scripting</li>
-<li>Helm, Terraform</li>
-</ul>
-</div>
+<section class="container section">
+    <h3>Summary</h3>
+    <p>
+        DevOps Engineer specializing in OpenShift, Kubernetes, CI/CD automation, 
+        GitHub Actions, and AWS infrastructure engineering.
+        Focused on scalable deployments, container security, and 
+        production-grade cloud architecture.
+    </p>
+</section>
+
+<section class="container section">
+    <h3>Core Skills</h3>
+    <ul>
+        <li>OpenShift, Kubernetes, Docker</li>
+        <li>AWS, GCP</li>
+        <li>GitHub Actions, CI/CD</li>
+        <li>Linux, Shell Scripting</li>
+        <li>Helm, Terraform</li>
+    </ul>
+</section>
+
+<section class="container section">
+    <h3>DevOps Focus Areas</h3>
+    <ul>
+        <li>Production OpenShift Deployments</li>
+        <li>STG → PROD Promotion Automation</li>
+        <li>Infrastructure as Code</li>
+        <li>Container Security & Governance</li>
+        <li>Cloud-Native Architecture</li>
+    </ul>
+</section>
+
+<footer>
+    © 2026 Abhijeet | DevOps Engineer
+</footer>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("light");
+    localStorage.setItem("theme",
+        document.body.classList.contains("light") ? "light" : "dark"
+    );
+}
+
+window.onload = function() {
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light");
+    }
+}
+</script>
+
 </body>
 </html>
