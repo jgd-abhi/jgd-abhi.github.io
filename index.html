@@ -4,74 +4,68 @@
 <meta charset="UTF-8">
 <title>Abhijeet | DevOps Engineer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="DevOps Engineer | OpenShift | Kubernetes | CI/CD | Cloud Architecture">
+<meta name="description" content="DevOps Engineer | Cloud | Kubernetes | CI/CD | Automation">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<div class="controls">
-    <button id="lightDarkToggle" class="icon-btn">
-        🌙
-    </button>
-    <button id="redThemeToggle" class="icon-btn">
-        🔴
-    </button>
-</div>
-
 <canvas id="network"></canvas>
 
-<header class="hero reveal" data-speed="0.2">
-    <div class="terminal">
-        <p id="typing"></p><span class="cursor">|</span>
+<header class="navbar">
+    <div class="nav-left">
+        <strong>Abhijeet</strong>
+        <span class="role">DevOps Engineer</span>
     </div>
 
-    <div class="hero-actions">
-        <a href="resume.pdf" class="btn" download>Download Resume</a>
-        <a href="https://github.com/jgd-abhi" target="_blank" class="btn outline">GitHub</a>
+    <div class="nav-right">
+        <label class="switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+        </label>
+
+        <label class="switch red-switch">
+            <input type="checkbox" id="redSwitch">
+            <span class="slider"></span>
+        </label>
+
+        <a href="resume.pdf" class="nav-btn" download>
+            <i class="fa-solid fa-file-arrow-down"></i> CV
+        </a>
+
+        <a href="https://github.com/jgd-abhi" target="_blank" class="nav-btn">
+            <i class="fa-brands fa-github"></i> GitHub
+        </a>
     </div>
 </header>
 
-<section class="section metrics reveal">
-    <h2>Production Metrics</h2>
-    <div class="metric-grid">
-        <div class="metric">
-            <h3 id="deployments">0</h3>
-            <p>Deployments Automated</p>
-        </div>
-        <div class="metric">
-            <h3 id="clusters">0</h3>
-            <p>Clusters Managed</p>
-        </div>
-        <div class="metric">
-            <h3 id="uptime">0</h3>
-            <p>% Uptime Reliability</p>
-        </div>
+<section class="hero" data-speed="0.15">
+    <div class="terminal glass">
+        <p id="typing"></p><span class="cursor">|</span>
     </div>
+
+    <p class="tagline">
+        Worked on <strong>5+ live production projects</strong> 
+        and continuously expanding real-world DevOps expertise.
+    </p>
 </section>
 
 <section class="section reveal">
-    <h2>Deployment Promotion Flow</h2>
-    <div class="pipeline">
-        <div class="stage">Code</div>
-        <div class="stage">Build</div>
-        <div class="stage">Test</div>
-        <div class="stage">STG</div>
-        <div class="stage prod">PROD</div>
-        <div class="flow-line"></div>
-    </div>
-</section>
-
-<section class="section reveal">
-    <h2>Core Technologies</h2>
+    <h2>Experience & Technologies</h2>
     <div class="badges">
-        <span>OpenShift</span>
-        <span>Kubernetes</span>
-        <span>Docker</span>
-        <span>AWS</span>
-        <span>Terraform</span>
-        <span>Helm</span>
-        <span>GitHub Actions</span>
         <span>Linux</span>
+        <span>Windows</span>
+        <span>AWS</span>
+        <span>GCP</span>
+        <span>Azure</span>
+        <span>Docker</span>
+        <span>Jenkins</span>
+        <span>GitHub Actions</span>
+        <span>Terraform</span>
+        <span>Kubernetes</span>
+        <span>Helm</span>
+        <span>OpenShift</span>
     </div>
 </section>
 
@@ -80,7 +74,7 @@
     <div id="repos" class="repos"></div>
 </section>
 
-<footer>
+<footer class="glass-footer">
 © 2026 Abhijeet | DevOps Engineer
 </footer>
 
