@@ -7,49 +7,52 @@
 <meta name="description" content="DevOps Engineer specializing in Cloud, Kubernetes and CI/CD automation.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <canvas id="network" aria-hidden="true"></canvas>
 
-<header class="navbar" role="banner">
+<header class="navbar">
     <div class="brand">
         <strong>Abhijeet</strong>
         <span>DevOps Engineer</span>
     </div>
 
-    <div class="toggles" aria-label="Theme controls">
-        <label class="switch" aria-label="Toggle light mode">
-            <input type="checkbox" id="themeSwitch">
-            <span class="slider"></span>
-        </label>
+    <div class="toggles">
+        <div class="toggle-wrapper">
+            <span>Light</span>
+            <label class="switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
 
-        <label class="switch" aria-label="Toggle red theme">
-            <input type="checkbox" id="redSwitch">
-            <span class="slider"></span>
-        </label>
+        <div class="toggle-wrapper">
+            <span>Red</span>
+            <label class="switch">
+                <input type="checkbox" id="redSwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
     </div>
 </header>
 
 <main>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1 id="loopText" aria-live="polite"></h1>
-        <p class="subtitle">
-            Cloud-native automation • Kubernetes platforms • CI/CD engineering
-        </p>
+    <h1 id="loopText"></h1>
+    <p class="subtitle">
+        Cloud-native automation • Kubernetes platforms • CI/CD engineering
+    </p>
 
-        <div class="cta">
-            <a href="resume.pdf" class="btn primary" download>
-                Download CV
-            </a>
-            <a href="https://github.com/jgd-abhi" target="_blank" class="btn secondary">
-                GitHub
-            </a>
-        </div>
+    <div class="cta">
+        <a href="resume.pdf" class="btn primary" download>
+            Download CV
+        </a>
+        <a href="https://github.com/jgd-abhi" target="_blank" class="btn secondary">
+            GitHub
+        </a>
     </div>
 </section>
 
@@ -72,67 +75,18 @@
     <h2>Technologies & Platforms</h2>
 
     <div class="tech-grid">
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux logo">
-            <span>Linux</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows logo">
-            <span>Windows</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS logo">
-            <span>AWS</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP logo">
-            <span>GCP</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure logo">
-            <span>Azure</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo">
-            <span>Docker</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins logo">
-            <span>Jenkins</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Actions logo">
-            <span>GitHub Actions</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform logo">
-            <span>Terraform</span>
-        </div>
-
-        <div class="tech-card" tabindex="0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes logo">
-            <span>Kubernetes</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg" alt="Helm logo">
-            <span>Helm</span>
-        </div>
-
-        <div class="tech-card" tabindex="0">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg">
-            <span>OpenShift</span>
-        </div>
-
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"><span>Linux</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg"><span>Windows</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"><span>AWS</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"><span>GCP</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"><span>Azure</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"><span>Docker</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg"><span>Jenkins</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"><span>GitHub Actions</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"><span>Terraform</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"><span>Kubernetes</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg"><span>Helm</span></div>
+        <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg"><span>OpenShift</span></div>
     </div>
 </section>
 
