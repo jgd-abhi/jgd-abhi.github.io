@@ -4,139 +4,94 @@
 <meta charset="UTF-8">
 <title>Abhijeet | DevOps Engineer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Mid-level DevOps Engineer specializing in Secure & Scalable Platform Automation.">
+<meta name="description" content="Mid-Level DevOps Engineer | Secure & Scalable Platform Automation">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<canvas id="particles"></canvas>
+
 <header class="navbar">
-    <div class="brand">
-        <h1>Abhijeet</h1>
-        <p>DevOps Engineer</p>
-    </div>
+  <div class="brand">
+    <h1>Abhijeet</h1>
+    <p>DevOps Engineer</p>
+  </div>
 
-    <div class="theme-controls">
-        <button id="themeToggle" class="icon-btn" title="Toggle Dark/Light">
-            ☀️
-        </button>
-
-        <button id="accentBlue" class="icon-btn" title="Azure Accent">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
-        </button>
-
-        <button id="accentRed" class="icon-btn" title="Red Hat Accent">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg" alt="Red Hat">
-        </button>
-    </div>
+  <div class="controls">
+    <button id="themeToggle" title="Toggle Dark/Light">🌙</button>
+    <button id="blueAccent" title="Azure Accent">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="">
+    </button>
+    <button id="redAccent" title="Red Hat Accent">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg" alt="">
+    </button>
+  </div>
 </header>
 
 <main>
 
 <section class="hero">
-    <h2 id="loopText"></h2>
-    <p class="subtitle">
-        AWS-focused Infrastructure • Kubernetes Platforms • Secure CI/CD Engineering
-    </p>
+  <h2 id="typing"></h2>
+  <p class="subtitle">
+    AWS-Focused Infrastructure • Kubernetes Platforms • Secure CI/CD Engineering
+  </p>
 
-    <div class="cta">
-        <a href="resume.pdf" class="btn glass-btn" download>Download CV</a>
-        <a href="https://github.com/jgd-abhi" target="_blank" class="btn glass-btn secondary">GitHub</a>
-    </div>
+  <div class="cta">
+    <a href="resume.pdf" class="btn primary" download>Download CV</a>
+    <a href="https://github.com/jgd-abhi" target="_blank" class="btn secondary">GitHub</a>
+  </div>
 </section>
 
 <section class="stats">
-    <div class="stat">
-        <h3>99%</h3>
-        <span>Production Reliability</span>
-    </div>
+  <div class="stat">
+    <h3 data-count="99">0</h3>
+    <span>Production Reliability</span>
+  </div>
 
-    <div class="stat">
-        <h3>12+</h3>
-        <span>Projects Delivered</span>
-    </div>
+  <div class="stat">
+    <h3 data-count="12">0</h3>
+    <span>Projects Delivered</span>
+  </div>
 
-    <div class="stat">
-        <h3>Secure & Scalable</h3>
-        <span>Platform Automation & CI/CD Security</span>
-    </div>
+  <div class="stat">
+    <h3>Secure</h3>
+    <span>& Scalable Platform Automation</span>
+  </div>
 </section>
 
-<section class="section">
-    <h2>Technology Expertise</h2>
+<section class="tech-section">
+  <h2>Technology Expertise</h2>
 
-    <div class="tech-grid">
+  <div class="tech-grid">
 
-        <div class="tech-card">
-            <div class="tech-front">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
-                <span>Linux</span>
-            </div>
-            <div class="tech-back">
-                <p>Foundation of secure and reliable infrastructure engineering.</p>
-                <ul>
-                    <li>System hardening</li>
-                    <li>Shell automation</li>
-                    <li>Performance tuning</li>
-                    <li>Log analysis</li>
-                    <li>Service orchestration</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="tech-card">
-            <div class="tech-front">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
-                <span>Docker</span>
-            </div>
-            <div class="tech-back">
-                <p>Portable and consistent application runtime environments.</p>
-                <ul>
-                    <li>Multi-stage builds</li>
-                    <li>Image optimization</li>
-                    <li>Registry integration</li>
-                    <li>Networking</li>
-                    <li>Container debugging</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="tech-card">
-            <div class="tech-front">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">
-                <span>Kubernetes</span>
-            </div>
-            <div class="tech-back">
-                <p>Automated orchestration for scalable production systems.</p>
-                <ul>
-                    <li>Deployments & Services</li>
-                    <li>Ingress config</li>
-                    <li>RBAC</li>
-                    <li>Resource scaling</li>
-                    <li>Helm releases</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="tech-card">
-            <div class="tech-front">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
-                <span>AWS</span>
-            </div>
-            <div class="tech-back">
-                <p>Designing resilient cloud-native infrastructure.</p>
-                <ul>
-                    <li>VPC & networking</li>
-                    <li>EC2 scaling</li>
-                    <li>IAM security</li>
-                    <li>Load balancing</li>
-                    <li>RDS optimization</li>
-                </ul>
-            </div>
-        </div>
-
+    <div class="tech-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="">
+      <h4>Linux</h4>
+      <p>Foundation of hardened, production-ready systems.</p>
     </div>
+
+    <div class="tech-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">
+      <h4>Docker</h4>
+      <p>Containerized and portable application environments.</p>
+    </div>
+
+    <div class="tech-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="">
+      <h4>Kubernetes</h4>
+      <p>Scalable orchestration for resilient cloud workloads.</p>
+    </div>
+
+    <div class="tech-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="">
+      <h4>AWS</h4>
+      <p>High-availability infrastructure design and automation.</p>
+    </div>
+
+  </div>
 </section>
 
 </main>
