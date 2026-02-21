@@ -1,4 +1,4 @@
-// LOOP TEXT
+// HERO LOOP
 const phrases=[
 "Designing Secure Cloud Architectures.",
 "Automating STG → PROD Deployments.",
@@ -32,7 +32,7 @@ function eraseLoop(){
 }
 typeLoop();
 
-// THEME
+// THEME TOGGLES
 document.getElementById("darkToggle").onclick=()=>{
     document.body.classList.toggle("dark");
 };
@@ -45,10 +45,6 @@ document.getElementById("redToggle").onclick=()=>{
 document.querySelectorAll(".accordion-header").forEach(header=>{
     header.addEventListener("click",()=>{
         const content=header.nextElementSibling;
-        if(content.style.maxHeight){
-            content.style.maxHeight=null;
-        }else{
-            content.style.maxHeight=content.scrollHeight+"px";
-        }
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
     });
 });
