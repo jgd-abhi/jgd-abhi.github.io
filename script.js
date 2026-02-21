@@ -26,34 +26,38 @@ function erase(){
 }
 type();
 
-// Dark toggle
-document.getElementById("themeToggle").onclick=()=>{
+// Dark / Light toggle with icon switch
+const themeBtn=document.getElementById("themeToggle");
+themeBtn.onclick=()=>{
   document.body.classList.toggle("light");
+  themeBtn.textContent=document.body.classList.contains("light")?"🌙":"☀️";
 };
 
-// Accent buttons
-document.getElementById("blueAccent").onclick=()=>{
-  document.documentElement.style.setProperty('--accent','#3b82f6');
-};
+// Accent toggle Azure <-> RedHat
+const accentBtn=document.getElementById("accentToggle");
+const accentIcon=document.getElementById("accentIcon");
 
-document.getElementById("redAccent").onclick=()=>{
-  document.documentElement.style.setProperty('--accent','#ee0000');
+let red=false;
+
+accentBtn.onclick=()=>{
+  red=!red;
+  if(red){
+    document.documentElement.style.setProperty('--accent','#ee0000');
+    accentIcon.src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg";
+  }else{
+    document.documentElement.style.setProperty('--accent','#3b82f6');
+    accentIcon.src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg";
+  }
 };
 
 // Animated counters
-const counters=document.querySelectorAll('[data-count]');
-const speed=200;
-
-counters.forEach(counter=>{
+document.querySelectorAll('[data-count]').forEach(counter=>{
+  const target=+counter.getAttribute('data-count');
+  let count=0;
   const update=()=>{
-    const target=+counter.getAttribute('data-count');
-    const count=+counter.innerText;
-    const inc=target/speed;
-
-    if(count<target){
-      counter.innerText=Math.ceil(count+inc);
-      setTimeout(update,10);
-    }else counter.innerText=target;
+    count+=1;
+    counter.innerText=count;
+    if(count<target) requestAnimationFrame(update);
   };
   update();
 });
