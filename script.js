@@ -1,9 +1,9 @@
-// HERO LOOP
+// LOOP TEXT
 const phrases=[
-"Building Reliable Cloud Platforms.",
-"Automating Scalable Deployments.",
-"Engineering CI/CD Pipelines.",
-"Managing Kubernetes Environments."
+"Designing Secure Cloud Architectures.",
+"Automating STG → PROD Deployments.",
+"Engineering Reliable Kubernetes Platforms.",
+"Building Secure & Scalable DevOps Systems."
 ];
 
 let index=0;
@@ -32,42 +32,23 @@ function eraseLoop(){
 }
 typeLoop();
 
-// THEME SWITCHES
-const themeSwitch=document.getElementById("themeSwitch");
-const redSwitch=document.getElementById("redSwitch");
+// THEME
+document.getElementById("darkToggle").onclick=()=>{
+    document.body.classList.toggle("dark");
+};
 
-themeSwitch.addEventListener("change",()=>{
-    if(themeSwitch.checked){
-        document.body.classList.add("light");
-        redSwitch.checked=false;
-        document.body.classList.remove("red");
-    }else{
-        document.body.classList.remove("light");
-    }
-});
+document.getElementById("redToggle").onclick=()=>{
+    document.body.classList.toggle("red");
+};
 
-redSwitch.addEventListener("change",()=>{
-    if(redSwitch.checked){
-        document.body.classList.add("red");
-        themeSwitch.checked=false;
-        document.body.classList.remove("light");
-    }else{
-        document.body.classList.remove("red");
-    }
-});
-
-// GITHUB
-fetch("https://api.github.com/users/jgd-abhi/repos?sort=updated")
-.then(res=>res.json())
-.then(data=>{
-    const container=document.getElementById("repos");
-    data.slice(0,6).forEach(repo=>{
-        const card=document.createElement("div");
-        card.className="tech-card";
-        card.innerHTML=`
-            <h3>${repo.name}</h3>
-            <p>${repo.description||"DevOps Repository"}</p>
-        `;
-        container.appendChild(card);
+// ACCORDION
+document.querySelectorAll(".accordion-header").forEach(header=>{
+    header.addEventListener("click",()=>{
+        const content=header.nextElementSibling;
+        if(content.style.maxHeight){
+            content.style.maxHeight=null;
+        }else{
+            content.style.maxHeight=content.scrollHeight+"px";
+        }
     });
 });
