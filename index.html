@@ -16,18 +16,19 @@
 
 <header class="navbar">
   <div class="brand">
-    <h1>Abhijeet</h1>
-    <p>DevOps Engineer</p>
-  </div>
+    <div class="name-row">
+      <button id="themeToggle" class="icon-btn sun-btn" title="Toggle Theme">☀</button>
+      <h1>Abhijeet</h1>
+    </div>
 
-  <div class="controls">
-    <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark/Light">🌙</button>
-
-    <button id="accentToggle" class="icon-btn" aria-label="Toggle Accent">
-      <img id="accentIcon"
+    <div class="role-row">
+      <p>DevOps Engineer</p>
+      <button id="accentToggle" class="icon-btn">
+        <img id="accentIcon"
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
         alt="Accent">
-    </button>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -65,30 +66,178 @@
 <section class="tech-section">
   <h2>Technology Expertise</h2>
 
-  <div class="tech-grid">
-    <div class="tech-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="">
-      <h4>Linux</h4>
-      <p>Foundation of hardened production systems.</p>
+  <div class="accordion">
+
+    <!-- Repeat structure for all tech stacks -->
+
+    <div class="accordion-item">
+      <button class="accordion-header">Linux</button>
+      <div class="accordion-content">
+        <p class="tagline">Core foundation of secure infrastructure engineering.</p>
+        <ul>
+          <li>Enterprise system hardening</li>
+          <li>Shell automation scripting</li>
+          <li>Process & service management</li>
+          <li>Log analysis & debugging</li>
+          <li>Performance optimization</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="tech-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">
-      <h4>Docker</h4>
-      <p>Portable containerized environments.</p>
+    <div class="accordion-item">
+      <button class="accordion-header">Windows</button>
+      <div class="accordion-content">
+        <p class="tagline">Hybrid infrastructure operational management.</p>
+        <ul>
+          <li>Windows Server management</li>
+          <li>Active Directory fundamentals</li>
+          <li>PowerShell automation</li>
+          <li>Patch & update management</li>
+          <li>Network configuration</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="tech-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="">
-      <h4>Kubernetes</h4>
-      <p>Scalable orchestration at production scale.</p>
+    <div class="accordion-item">
+      <button class="accordion-header">AWS</button>
+      <div class="accordion-content">
+        <p class="tagline">High-availability cloud architecture design.</p>
+        <ul>
+          <li>VPC & networking design</li>
+          <li>EC2 autoscaling</li>
+          <li>IAM least privilege security</li>
+          <li>Load balancers & HA</li>
+          <li>RDS optimization</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="tech-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="">
-      <h4>AWS</h4>
-      <p>High-availability infrastructure design.</p>
+    <div class="accordion-item">
+      <button class="accordion-header">GCP</button>
+      <div class="accordion-content">
+        <p class="tagline">Multi-cloud workload orchestration exposure.</p>
+        <ul>
+          <li>Compute Engine provisioning</li>
+          <li>IAM policies</li>
+          <li>Networking firewall config</li>
+          <li>Container workloads</li>
+          <li>Hybrid integration</li>
+        </ul>
+      </div>
     </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Azure</button>
+      <div class="accordion-content">
+        <p class="tagline">Cloud service and VM deployment management.</p>
+        <ul>
+          <li>VM provisioning</li>
+          <li>Resource group management</li>
+          <li>Networking fundamentals</li>
+          <li>Hybrid architecture exposure</li>
+          <li>Cloud integration basics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Docker</button>
+      <div class="accordion-content">
+        <p class="tagline">Containerized runtime standardization.</p>
+        <ul>
+          <li>Multi-stage builds</li>
+          <li>Image optimization</li>
+          <li>Registry integration</li>
+          <li>Networking setup</li>
+          <li>Container debugging</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Jenkins</button>
+      <div class="accordion-content">
+        <p class="tagline">CI/CD orchestration pipelines.</p>
+        <ul>
+          <li>Jenkinsfile pipelines</li>
+          <li>Plugin integration</li>
+          <li>Credential management</li>
+          <li>Automated deployments</li>
+          <li>Pipeline optimization</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">GitHub Actions</button>
+      <div class="accordion-content">
+        <p class="tagline">Cloud-native CI/CD automation workflows.</p>
+        <ul>
+          <li>Workflow YAML design</li>
+          <li>STG → PROD automation</li>
+          <li>Secrets handling</li>
+          <li>Branch-based triggers</li>
+          <li>Reusable pipelines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Terraform</button>
+      <div class="accordion-content">
+        <p class="tagline">Infrastructure as Code modular architecture.</p>
+        <ul>
+          <li>Reusable modules</li>
+          <li>Remote state management</li>
+          <li>Multi-env config</li>
+          <li>Cloud provisioning</li>
+          <li>Secure resource design</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Kubernetes</button>
+      <div class="accordion-content">
+        <p class="tagline">Production-grade orchestration platform.</p>
+        <ul>
+          <li>Deployments & services</li>
+          <li>Ingress & networking</li>
+          <li>RBAC policies</li>
+          <li>Scaling workloads</li>
+          <li>Cluster troubleshooting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Helm</button>
+      <div class="accordion-content">
+        <p class="tagline">Kubernetes release & packaging management.</p>
+        <ul>
+          <li>Chart templating</li>
+          <li>Release versioning</li>
+          <li>Values override</li>
+          <li>Environment configs</li>
+          <li>Package lifecycle</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">OpenShift</button>
+      <div class="accordion-content">
+        <p class="tagline">Enterprise Kubernetes with enhanced security.</p>
+        <ul>
+          <li>Routes & SCC</li>
+          <li>Operator management</li>
+          <li>Cluster operations</li>
+          <li>CI/CD integration</li>
+          <li>Security posture awareness</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
