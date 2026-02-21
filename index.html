@@ -4,33 +4,27 @@
 <meta charset="UTF-8">
 <title>Abhijeet | DevOps Engineer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Mid-Level DevOps Engineer | Secure & Scalable Platform Automation">
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-
 <header class="navbar">
-  <div class="brand-wrapper">
-
-    <div class="brand-text">
+  <div class="header-glass">
+    <div class="brand">
       <h1>Abhijeet</h1>
       <p>DevOps Engineer</p>
     </div>
 
     <div class="toggle-capsule">
-      <button id="themeToggle" class="icon-btn">☀</button>
-      <button id="accentToggle" class="icon-btn">
+      <button id="themeToggle">☀</button>
+      <button id="accentToggle">
         <img id="accentIcon"
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
         alt="">
       </button>
     </div>
-
   </div>
 </header>
 
@@ -38,30 +32,26 @@
 
 <section class="hero">
   <h2 id="typing"></h2>
-  <p class="subtitle">
-    AWS-Focused Infrastructure • Kubernetes Platforms • Secure CI/CD Engineering
-  </p>
+  <p>AWS Infrastructure • Kubernetes • Secure CI/CD</p>
 
   <div class="cta">
     <a href="resume.pdf" class="btn primary" download>Download CV</a>
     <a href="https://github.com/jgd-abhi" target="_blank" class="btn secondary">GitHub</a>
   </div>
-</section>
 
-<section class="stats">
-  <div class="stat">
-    <h3 data-count="99">0</h3>
-    <span>Production Reliability</span>
-  </div>
-
-  <div class="stat">
-    <h3 data-count="12">0</h3>
-    <span>Projects Delivered</span>
-  </div>
-
-  <div class="stat">
-    <h3>Secure</h3>
-    <span>& Scalable Platform Automation</span>
+  <div class="stats">
+    <div>
+      <h3>99%</h3>
+      <span>Reliability</span>
+    </div>
+    <div>
+      <h3>12+</h3>
+      <span>Projects</span>
+    </div>
+    <div>
+      <h3>Secure</h3>
+      <span>Platform Automation</span>
+    </div>
   </div>
 </section>
 
@@ -70,110 +60,73 @@
 
   <div class="tech-grid">
 
+    <!-- Template for each tech -->
     <!-- Linux -->
-    <div class="tech-card">
-      <div class="tech-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
-        <h3>Linux</h3>
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
+          <h3>Linux</h3>
+          <p class="tagline">Hardened infrastructure backbone</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>System hardening</li>
+            <li>Shell automation</li>
+            <li>Service management</li>
+            <li>Performance tuning</li>
+            <li>Log troubleshooting</li>
+          </ul>
+        </div>
       </div>
-      <p class="tagline">Foundation of hardened infrastructure systems.</p>
-      <ul>
-        <li>Enterprise server hardening</li>
-        <li>Shell automation scripting</li>
-        <li>Process & service management</li>
-        <li>Performance optimization</li>
-        <li>Log troubleshooting</li>
-      </ul>
     </div>
 
     <!-- Windows -->
-    <div class="tech-card">
-      <div class="tech-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg">
-        <h3>Windows</h3>
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg">
+          <h3>Windows</h3>
+          <p class="tagline">Hybrid infra operations</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Server management</li>
+            <li>PowerShell scripting</li>
+            <li>Patch control</li>
+            <li>AD fundamentals</li>
+            <li>Network config</li>
+          </ul>
+        </div>
       </div>
-      <p class="tagline">Hybrid infrastructure operational management.</p>
-      <ul>
-        <li>Windows Server configuration</li>
-        <li>PowerShell automation</li>
-        <li>Patch management</li>
-        <li>Active Directory exposure</li>
-        <li>Network configuration</li>
-      </ul>
     </div>
 
     <!-- AWS -->
-    <div class="tech-card">
-      <div class="tech-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
-        <h3>AWS</h3>
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
+          <h3>AWS</h3>
+          <p class="tagline">High availability architecture</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>VPC & networking</li>
+            <li>EC2 autoscaling</li>
+            <li>IAM security</li>
+            <li>Load balancing</li>
+            <li>RDS optimization</li>
+          </ul>
+        </div>
       </div>
-      <p class="tagline">High-availability cloud-native architecture design.</p>
-      <ul>
-        <li>VPC & networking</li>
-        <li>EC2 autoscaling</li>
-        <li>IAM least privilege model</li>
-        <li>Load balancers</li>
-        <li>RDS optimization</li>
-      </ul>
     </div>
 
-    <!-- Docker -->
-    <div class="tech-card">
-      <div class="tech-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
-        <h3>Docker</h3>
-      </div>
-      <p class="tagline">Containerized runtime standardization.</p>
-      <ul>
-        <li>Multi-stage builds</li>
-        <li>Image optimization</li>
-        <li>Registry integration</li>
-        <li>Networking setup</li>
-        <li>Container debugging</li>
-      </ul>
-    </div>
-
-    <!-- Kubernetes -->
-    <div class="tech-card">
-      <div class="tech-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">
-        <h3>Kubernetes</h3>
-      </div>
-      <p class="tagline">Production-grade orchestration platform.</p>
-      <ul>
-        <li>Deployments & services</li>
-        <li>Ingress configuration</li>
-        <li>RBAC policies</li>
-        <li>Helm releases</li>
-        <li>Cluster troubleshooting</li>
-      </ul>
-    </div>
-
-    <!-- Terraform -->
-    <div class="tech-card">
-      <div class="tech-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg">
-        <h3>Terraform</h3>
-      </div>
-      <p class="tagline">Infrastructure as Code modular architecture.</p>
-      <ul>
-        <li>Reusable modules</li>
-        <li>Remote state management</li>
-        <li>Multi-environment config</li>
-        <li>Cloud provisioning</li>
-        <li>Secure resource design</li>
-      </ul>
-    </div>
+    <!-- Add remaining tech same pattern -->
 
   </div>
 </section>
 
 </main>
-
-<footer class="footer">
-© 2026 Abhijeet | DevOps Engineer
-</footer>
 
 <script src="script.js"></script>
 </body>
