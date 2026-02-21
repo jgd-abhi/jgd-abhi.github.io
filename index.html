@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Abhijeet | DevOps Engineer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Mid-Level DevOps Engineer | Secure & Scalable Platform Automation">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -12,33 +11,33 @@
 
 <body>
 
-<canvas id="particles"></canvas>
-
 <header class="navbar">
-  <div class="brand">
-    <div class="name-row">
-      <button id="themeToggle" class="icon-btn sun-btn" title="Toggle Theme">☀</button>
+
+  <div class="brand-container">
+
+    <div class="brand-text">
       <h1>Abhijeet</h1>
+      <p>DevOps Engineer</p>
     </div>
 
-    <div class="role-row">
-      <p>DevOps Engineer</p>
-      <button id="accentToggle" class="icon-btn">
+    <div class="toggle-capsule">
+      <button id="themeToggle">☀</button>
+      <button id="accentToggle">
         <img id="accentIcon"
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
-        alt="Accent">
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+          alt="">
       </button>
     </div>
+
   </div>
+
 </header>
 
 <main>
 
 <section class="hero">
-  <h2 id="typing"></h2>
-  <p class="subtitle">
-    AWS-Focused Infrastructure • Kubernetes Platforms • Secure CI/CD Engineering
-  </p>
+  <h2>Secure & Scalable Platform Automation</h2>
+  <p>AWS-Focused Infrastructure • Kubernetes Platforms • CI/CD Engineering</p>
 
   <div class="cta">
     <a href="resume.pdf" class="btn primary" download>Download CV</a>
@@ -46,206 +45,79 @@
   </div>
 </section>
 
-<section class="stats">
-  <div class="stat">
-    <h3 data-count="99">0</h3>
-    <span>Production Reliability</span>
-  </div>
-
-  <div class="stat">
-    <h3 data-count="12">0</h3>
-    <span>Projects Delivered</span>
-  </div>
-
-  <div class="stat">
-    <h3>Secure</h3>
-    <span>& Scalable Platform Automation</span>
-  </div>
-</section>
-
 <section class="tech-section">
   <h2>Technology Expertise</h2>
 
-  <div class="accordion">
+  <div class="tech-grid">
 
-    <!-- Repeat structure for all tech stacks -->
-
-    <div class="accordion-item">
-      <button class="accordion-header">Linux</button>
-      <div class="accordion-content">
-        <p class="tagline">Core foundation of secure infrastructure engineering.</p>
-        <ul>
-          <li>Enterprise system hardening</li>
-          <li>Shell automation scripting</li>
-          <li>Process & service management</li>
-          <li>Log analysis & debugging</li>
-          <li>Performance optimization</li>
-        </ul>
+    <!-- Linux -->
+    <div class="tech-card">
+      <div class="tech-header">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
+        <h3>Linux</h3>
       </div>
+      <p class="tagline">Foundation of hardened production systems.</p>
+      <ul>
+        <li>Enterprise system hardening</li>
+        <li>Shell automation scripting</li>
+        <li>Process & service management</li>
+        <li>Performance optimization</li>
+        <li>Log analysis & debugging</li>
+      </ul>
     </div>
 
-    <div class="accordion-item">
-      <button class="accordion-header">Windows</button>
-      <div class="accordion-content">
-        <p class="tagline">Hybrid infrastructure operational management.</p>
-        <ul>
-          <li>Windows Server management</li>
-          <li>Active Directory fundamentals</li>
-          <li>PowerShell automation</li>
-          <li>Patch & update management</li>
-          <li>Network configuration</li>
-        </ul>
+    <!-- AWS -->
+    <div class="tech-card">
+      <div class="tech-header">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
+        <h3>AWS</h3>
       </div>
+      <p class="tagline">High-availability cloud architecture design.</p>
+      <ul>
+        <li>VPC & networking design</li>
+        <li>EC2 autoscaling</li>
+        <li>IAM least privilege model</li>
+        <li>Load balancers & HA</li>
+        <li>RDS performance tuning</li>
+      </ul>
     </div>
 
-    <div class="accordion-item">
-      <button class="accordion-header">AWS</button>
-      <div class="accordion-content">
-        <p class="tagline">High-availability cloud architecture design.</p>
-        <ul>
-          <li>VPC & networking design</li>
-          <li>EC2 autoscaling</li>
-          <li>IAM least privilege security</li>
-          <li>Load balancers & HA</li>
-          <li>RDS optimization</li>
-        </ul>
+    <!-- Kubernetes -->
+    <div class="tech-card">
+      <div class="tech-header">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">
+        <h3>Kubernetes</h3>
       </div>
+      <p class="tagline">Production-grade orchestration platform.</p>
+      <ul>
+        <li>Deployments & services</li>
+        <li>Ingress configuration</li>
+        <li>RBAC policies</li>
+        <li>Helm-based releases</li>
+        <li>Cluster troubleshooting</li>
+      </ul>
     </div>
 
-    <div class="accordion-item">
-      <button class="accordion-header">GCP</button>
-      <div class="accordion-content">
-        <p class="tagline">Multi-cloud workload orchestration exposure.</p>
-        <ul>
-          <li>Compute Engine provisioning</li>
-          <li>IAM policies</li>
-          <li>Networking firewall config</li>
-          <li>Container workloads</li>
-          <li>Hybrid integration</li>
-        </ul>
+    <!-- Docker -->
+    <div class="tech-card">
+      <div class="tech-header">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
+        <h3>Docker</h3>
       </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">Azure</button>
-      <div class="accordion-content">
-        <p class="tagline">Cloud service and VM deployment management.</p>
-        <ul>
-          <li>VM provisioning</li>
-          <li>Resource group management</li>
-          <li>Networking fundamentals</li>
-          <li>Hybrid architecture exposure</li>
-          <li>Cloud integration basics</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">Docker</button>
-      <div class="accordion-content">
-        <p class="tagline">Containerized runtime standardization.</p>
-        <ul>
-          <li>Multi-stage builds</li>
-          <li>Image optimization</li>
-          <li>Registry integration</li>
-          <li>Networking setup</li>
-          <li>Container debugging</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">Jenkins</button>
-      <div class="accordion-content">
-        <p class="tagline">CI/CD orchestration pipelines.</p>
-        <ul>
-          <li>Jenkinsfile pipelines</li>
-          <li>Plugin integration</li>
-          <li>Credential management</li>
-          <li>Automated deployments</li>
-          <li>Pipeline optimization</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">GitHub Actions</button>
-      <div class="accordion-content">
-        <p class="tagline">Cloud-native CI/CD automation workflows.</p>
-        <ul>
-          <li>Workflow YAML design</li>
-          <li>STG → PROD automation</li>
-          <li>Secrets handling</li>
-          <li>Branch-based triggers</li>
-          <li>Reusable pipelines</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">Terraform</button>
-      <div class="accordion-content">
-        <p class="tagline">Infrastructure as Code modular architecture.</p>
-        <ul>
-          <li>Reusable modules</li>
-          <li>Remote state management</li>
-          <li>Multi-env config</li>
-          <li>Cloud provisioning</li>
-          <li>Secure resource design</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">Kubernetes</button>
-      <div class="accordion-content">
-        <p class="tagline">Production-grade orchestration platform.</p>
-        <ul>
-          <li>Deployments & services</li>
-          <li>Ingress & networking</li>
-          <li>RBAC policies</li>
-          <li>Scaling workloads</li>
-          <li>Cluster troubleshooting</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">Helm</button>
-      <div class="accordion-content">
-        <p class="tagline">Kubernetes release & packaging management.</p>
-        <ul>
-          <li>Chart templating</li>
-          <li>Release versioning</li>
-          <li>Values override</li>
-          <li>Environment configs</li>
-          <li>Package lifecycle</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">OpenShift</button>
-      <div class="accordion-content">
-        <p class="tagline">Enterprise Kubernetes with enhanced security.</p>
-        <ul>
-          <li>Routes & SCC</li>
-          <li>Operator management</li>
-          <li>Cluster operations</li>
-          <li>CI/CD integration</li>
-          <li>Security posture awareness</li>
-        </ul>
-      </div>
+      <p class="tagline">Containerized runtime standardization.</p>
+      <ul>
+        <li>Multi-stage builds</li>
+        <li>Image optimization</li>
+        <li>Registry integration</li>
+        <li>Networking setup</li>
+        <li>Container debugging</li>
+      </ul>
     </div>
 
   </div>
 </section>
 
 </main>
-
-<footer class="footer">
-© 2026 Abhijeet | DevOps Engineer
-</footer>
 
 <script src="script.js"></script>
 </body>
