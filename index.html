@@ -32,7 +32,7 @@
 
 <section class="hero">
   <h2 id="typing"></h2>
-  <p>AWS Infrastructure • Kubernetes • Secure CI/CD</p>
+  <p class="hero-sub">AWS Infrastructure • Kubernetes • Secure CI/CD</p>
 
   <div class="cta">
     <a href="resume.pdf" class="btn primary" download>Download CV</a>
@@ -40,15 +40,15 @@
   </div>
 
   <div class="stats">
-    <div>
+    <div class="stat">
       <h3>99%</h3>
       <span>Reliability</span>
     </div>
-    <div>
+    <div class="stat">
       <h3>12+</h3>
-      <span>Projects</span>
+      <span>Projects Delivered</span>
     </div>
-    <div>
+    <div class="stat">
       <h3>Secure</h3>
       <span>Platform Automation</span>
     </div>
@@ -60,7 +60,6 @@
 
   <div class="tech-grid">
 
-    <!-- Template for each tech -->
     <!-- Linux -->
     <div class="tech-card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
@@ -94,8 +93,8 @@
             <li>Server management</li>
             <li>PowerShell scripting</li>
             <li>Patch control</li>
-            <li>AD fundamentals</li>
-            <li>Network config</li>
+            <li>Active Directory</li>
+            <li>Network configuration</li>
           </ul>
         </div>
       </div>
@@ -107,13 +106,13 @@
         <div class="card-front">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
           <h3>AWS</h3>
-          <p class="tagline">High availability architecture</p>
+          <p class="tagline">Cloud-native HA architecture</p>
         </div>
         <div class="card-back">
           <ul>
-            <li>VPC & networking</li>
+            <li>VPC networking</li>
             <li>EC2 autoscaling</li>
-            <li>IAM security</li>
+            <li>IAM least privilege</li>
             <li>Load balancing</li>
             <li>RDS optimization</li>
           </ul>
@@ -121,7 +120,165 @@
       </div>
     </div>
 
-    <!-- Add remaining tech same pattern -->
+    <!-- GCP -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg">
+          <h3>GCP</h3>
+          <p class="tagline">Multi-cloud exposure</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Compute Engine</li>
+            <li>IAM roles</li>
+            <li>Firewall rules</li>
+            <li>Container workloads</li>
+            <li>Hybrid integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Azure -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg">
+          <h3>Azure</h3>
+          <p class="tagline">Enterprise cloud services</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>VM provisioning</li>
+            <li>Resource groups</li>
+            <li>Networking basics</li>
+            <li>Hybrid setups</li>
+            <li>Cloud integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Docker -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
+          <h3>Docker</h3>
+          <p class="tagline">Container standardization</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Multi-stage builds</li>
+            <li>Image optimization</li>
+            <li>Registry integration</li>
+            <li>Networking setup</li>
+            <li>Container debugging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jenkins -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg">
+          <h3>Jenkins</h3>
+          <p class="tagline">CI/CD pipeline orchestration</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Jenkinsfile pipelines</li>
+            <li>Plugin integration</li>
+            <li>Credential management</li>
+            <li>Build automation</li>
+            <li>Pipeline optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub Actions -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+          <h3>GitHub Actions</h3>
+          <p class="tagline">Cloud-native automation</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Workflow YAML</li>
+            <li>STG → PROD promotion</li>
+            <li>Secrets handling</li>
+            <li>Branch triggers</li>
+            <li>Reusable pipelines</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terraform -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg">
+          <h3>Terraform</h3>
+          <p class="tagline">Infrastructure as Code</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Reusable modules</li>
+            <li>Remote state</li>
+            <li>Multi-env configs</li>
+            <li>Cloud provisioning</li>
+            <li>Secure resource design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Helm -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg">
+          <h3>Helm</h3>
+          <p class="tagline">K8s package management</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Chart templating</li>
+            <li>Release versioning</li>
+            <li>Values override</li>
+            <li>Environment configs</li>
+            <li>Lifecycle management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- OpenShift -->
+    <div class="tech-card" onclick="this.classList.toggle('flip')">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg">
+          <h3>OpenShift</h3>
+          <p class="tagline">Enterprise Kubernetes platform</p>
+        </div>
+        <div class="card-back">
+          <ul>
+            <li>Routes & SCC</li>
+            <li>Operator management</li>
+            <li>Cluster operations</li>
+            <li>CI/CD integration</li>
+            <li>Security posture awareness</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
