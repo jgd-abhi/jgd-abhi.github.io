@@ -1,154 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Abhijeet | DevOps Engineer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DevOps Engineer specializing in Cloud, Kubernetes and CI/CD automation.">
+<meta charset="UTF-8">
+<title>Abhijeet | DevOps Engineer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mid-level DevOps Engineer specializing in Secure & Scalable Platform Automation.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="navbar">
-    <div class="brand">
-        <strong>Abhijeet</strong>
-        <span>DevOps Engineer</span>
+    <div class="brand-center">
+        <h1>Abhijeet</h1>
+        <p>DevOps Engineer</p>
     </div>
 
-    <div class="toggles">
-        <div class="toggle-wrapper">
-            <span>Light</span>
-            <label class="switch">
-                <input type="checkbox" id="themeSwitch">
-                <span class="slider"></span>
-            </label>
-        </div>
-
-        <div class="toggle-wrapper">
-            <span>Red</span>
-            <label class="switch">
-                <input type="checkbox" id="redSwitch">
-                <span class="slider"></span>
-            </label>
-        </div>
+    <div class="theme-controls">
+        <button id="darkToggle" class="icon-btn" aria-label="Toggle Dark Mode">🌙</button>
+        <button id="redToggle" class="icon-btn" aria-label="Toggle Red Theme">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg" alt="OpenShift">
+        </button>
     </div>
 </header>
 
 <main>
 
 <section class="hero">
-    <h1 id="loopText"></h1>
-
+    <h2 id="loopText"></h2>
     <p class="subtitle">
-        Cloud-native automation • Kubernetes platforms • CI/CD engineering
+        AWS-focused Cloud Infrastructure • Kubernetes Platforms • Secure CI/CD Engineering
     </p>
 
     <div class="cta">
-        <a href="resume.pdf" class="btn primary" download>Download CV</a>
-        <a href="https://github.com/jgd-abhi" target="_blank" class="btn secondary">GitHub</a>
+        <a href="resume.pdf" class="btn glass-3d primary" download>Download CV</a>
+        <a href="https://github.com/jgd-abhi" target="_blank" class="btn glass-3d secondary">GitHub</a>
     </div>
 </section>
 
 <section class="stats">
     <div class="stat">
-        <h2>8+</h2>
-        <p>Live Projects Delivered</p>
+        <h3>99%</h3>
+        <p>Production Reliability</p>
     </div>
 
     <div class="stat">
-        <h2>98%</h2>
-        <p>Deployment Reliability</p>
+        <h3>12+</h3>
+        <p>Projects Managed & Delivered</p>
     </div>
 
     <div class="stat">
-        <h2>12+</h2>
-        <p>CI/CD Pipelines Managed</p>
+        <h3>Secure & Scalable</h3>
+        <p>Platform Automation & CI/CD Security Integration</p>
     </div>
 </section>
 
 <section class="section">
     <h2>Technologies & Platforms</h2>
 
-    <div class="tech-grid">
+    <div class="accordion">
 
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-            <span>Linux</span>
+        <!-- Linux -->
+        <div class="accordion-item">
+            <button class="accordion-header">Linux</button>
+            <div class="accordion-content">
+                <ul>
+                    <li>Enterprise Linux administration & system hardening</li>
+                    <li>Shell scripting for automation & cron orchestration</li>
+                    <li>User & permission management (RBAC fundamentals)</li>
+                    <li>System performance monitoring & troubleshooting</li>
+                    <li>Package management & service control (systemd)</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows">
-            <span>Windows</span>
+        <!-- AWS -->
+        <div class="accordion-item">
+            <button class="accordion-header">AWS</button>
+            <div class="accordion-content">
+                <ul>
+                    <li>EC2 provisioning & networking (VPC, Subnets, SGs)</li>
+                    <li>IAM role design with least privilege principle</li>
+                    <li>Load balancing & high availability design</li>
+                    <li>RDS deployment & optimization</li>
+                    <li>CI/CD integration with cloud-native services</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-            <span>AWS</span>
+        <!-- Kubernetes -->
+        <div class="accordion-item">
+            <button class="accordion-header">Kubernetes</button>
+            <div class="accordion-content">
+                <ul>
+                    <li>Deployments, Services, Ingress configuration</li>
+                    <li>Helm-based release management</li>
+                    <li>Resource tuning & troubleshooting pods</li>
+                    <li>Namespace & RBAC management</li>
+                    <li>Production workload monitoring & scaling</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP">
-            <span>GCP</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
-            <span>Azure</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-            <span>Docker</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
-            <span>Jenkins</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Actions">
-            <span>GitHub Actions</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
-            <span>Terraform</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
-            <span>Kubernetes</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg" alt="Helm">
-            <span>Helm</span>
-        </div>
-
-        <div class="tech-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg" alt="OpenShift">
-            <span>OpenShift</span>
+        <!-- OpenShift -->
+        <div class="accordion-item">
+            <button class="accordion-header">OpenShift</button>
+            <div class="accordion-content">
+                <ul>
+                    <li>Cluster operations & project management</li>
+                    <li>Routes, SCC & RBAC configuration</li>
+                    <li>Operator-based platform management</li>
+                    <li>CI/CD integration (STG → PROD promotion)</li>
+                    <li>Security & compliance awareness (ACS exposure)</li>
+                </ul>
+            </div>
         </div>
 
     </div>
 </section>
 
-<section class="section">
-    <h2>Selected Repositories</h2>
-    <div id="repos" class="repos"></div>
-</section>
-
 </main>
 
 <footer class="footer">
-    © 2026 Abhijeet | DevOps Engineer
+© 2026 Abhijeet | DevOps Engineer
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
