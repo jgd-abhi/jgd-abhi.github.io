@@ -6,22 +6,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Mid-level DevOps Engineer specializing in Secure & Scalable Platform Automation.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="navbar">
-    <div class="brand-center">
+    <div class="brand">
         <h1>Abhijeet</h1>
         <p>DevOps Engineer</p>
     </div>
 
     <div class="theme-controls">
-        <button id="darkToggle" class="icon-btn" aria-label="Toggle Dark Mode">🌙</button>
+        <button id="themeToggle" class="icon-btn" title="Toggle Dark/Light">
+            ☀️
+        </button>
 
-        <button id="redToggle" class="icon-btn" aria-label="Toggle OpenShift Theme">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg" alt="OpenShift Theme">
+        <button id="accentBlue" class="icon-btn" title="Azure Accent">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
+        </button>
+
+        <button id="accentRed" class="icon-btn" title="Red Hat Accent">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg" alt="Red Hat">
         </button>
     </div>
 </header>
@@ -35,233 +41,97 @@
     </p>
 
     <div class="cta">
-        <a href="resume.pdf" class="btn glass-3d primary" download>Download CV</a>
-        <a href="https://github.com/jgd-abhi" target="_blank" class="btn glass-3d secondary">GitHub</a>
+        <a href="resume.pdf" class="btn glass-btn" download>Download CV</a>
+        <a href="https://github.com/jgd-abhi" target="_blank" class="btn glass-btn secondary">GitHub</a>
     </div>
 </section>
 
 <section class="stats">
     <div class="stat">
         <h3>99%</h3>
-        <p>Production Reliability</p>
+        <span>Production Reliability</span>
     </div>
 
     <div class="stat">
         <h3>12+</h3>
-        <p>Projects Managed & Delivered</p>
+        <span>Projects Delivered</span>
     </div>
 
     <div class="stat">
         <h3>Secure & Scalable</h3>
-        <p>Platform Automation & CI/CD Security Integration</p>
+        <span>Platform Automation & CI/CD Security</span>
     </div>
 </section>
 
 <section class="section">
-    <h2>Technologies & Platforms</h2>
+    <h2>Technology Expertise</h2>
 
-    <div class="accordion">
+    <div class="tech-grid">
 
-        <!-- LINUX -->
-        <div class="accordion-item">
-            <button class="accordion-header">
+        <div class="tech-card">
+            <div class="tech-front">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
-                Linux
-            </button>
-            <div class="accordion-content">
+                <span>Linux</span>
+            </div>
+            <div class="tech-back">
+                <p>Foundation of secure and reliable infrastructure engineering.</p>
                 <ul>
-                    <li>Enterprise server administration & system hardening</li>
-                    <li>Shell scripting & automation workflows</li>
-                    <li>User & group permission management</li>
-                    <li>Service monitoring & performance tuning</li>
-                    <li>Log analysis & troubleshooting</li>
+                    <li>System hardening</li>
+                    <li>Shell automation</li>
+                    <li>Performance tuning</li>
+                    <li>Log analysis</li>
+                    <li>Service orchestration</li>
                 </ul>
             </div>
         </div>
 
-        <!-- WINDOWS -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg">
-                Windows
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>Windows Server configuration</li>
-                    <li>Basic Active Directory exposure</li>
-                    <li>Service management & patch updates</li>
-                    <li>PowerShell automation basics</li>
-                    <li>File sharing & network configuration</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- AWS -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
-                AWS
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>EC2 provisioning & autoscaling</li>
-                    <li>VPC design & networking</li>
-                    <li>IAM with least privilege principle</li>
-                    <li>RDS deployment & optimization</li>
-                    <li>Load balancing & HA design</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- GCP -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg">
-                GCP
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>Compute Engine provisioning</li>
-                    <li>Cloud IAM fundamentals</li>
-                    <li>Basic container workloads</li>
-                    <li>Networking & firewall configuration</li>
-                    <li>Multi-cloud integration exposure</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- AZURE -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg">
-                Azure
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>Virtual Machine deployment</li>
-                    <li>Resource Group management</li>
-                    <li>Networking fundamentals</li>
-                    <li>Cloud service integration</li>
-                    <li>Hybrid cloud exposure</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- DOCKER -->
-        <div class="accordion-item">
-            <button class="accordion-header">
+        <div class="tech-card">
+            <div class="tech-front">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
-                Docker
-            </button>
-            <div class="accordion-content">
+                <span>Docker</span>
+            </div>
+            <div class="tech-back">
+                <p>Portable and consistent application runtime environments.</p>
                 <ul>
-                    <li>Container image building & optimization</li>
-                    <li>Multi-stage Dockerfiles</li>
-                    <li>Private registry integration</li>
-                    <li>Volume & network configuration</li>
-                    <li>Container troubleshooting</li>
+                    <li>Multi-stage builds</li>
+                    <li>Image optimization</li>
+                    <li>Registry integration</li>
+                    <li>Networking</li>
+                    <li>Container debugging</li>
                 </ul>
             </div>
         </div>
 
-        <!-- JENKINS -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg">
-                Jenkins
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>Pipeline as Code (Jenkinsfile)</li>
-                    <li>Build & deployment automation</li>
-                    <li>Plugin integration</li>
-                    <li>Credential management</li>
-                    <li>CI/CD job orchestration</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- GITHUB ACTIONS -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
-                GitHub Actions
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>Workflow YAML automation</li>
-                    <li>Multi-environment deployments</li>
-                    <li>STG → PROD promotion logic</li>
-                    <li>Secrets management</li>
-                    <li>Branch-based CI/CD triggers</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- TERRAFORM -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg">
-                Terraform
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>Infrastructure as Code design</li>
-                    <li>Module-based architecture</li>
-                    <li>Remote state management</li>
-                    <li>Multi-environment configuration</li>
-                    <li>Cloud resource provisioning</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- KUBERNETES -->
-        <div class="accordion-item">
-            <button class="accordion-header">
+        <div class="tech-card">
+            <div class="tech-front">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg">
-                Kubernetes
-            </button>
-            <div class="accordion-content">
+                <span>Kubernetes</span>
+            </div>
+            <div class="tech-back">
+                <p>Automated orchestration for scalable production systems.</p>
                 <ul>
                     <li>Deployments & Services</li>
-                    <li>Ingress & networking</li>
-                    <li>Helm-based releases</li>
-                    <li>RBAC & namespace management</li>
-                    <li>Resource scaling & monitoring</li>
+                    <li>Ingress config</li>
+                    <li>RBAC</li>
+                    <li>Resource scaling</li>
+                    <li>Helm releases</li>
                 </ul>
             </div>
         </div>
 
-        <!-- HELM -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg">
-                Helm
-            </button>
-            <div class="accordion-content">
-                <ul>
-                    <li>Chart templating</li>
-                    <li>Release versioning</li>
-                    <li>Values configuration</li>
-                    <li>Environment-based overrides</li>
-                    <li>Kubernetes package management</li>
-                </ul>
+        <div class="tech-card">
+            <div class="tech-front">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg">
+                <span>AWS</span>
             </div>
-        </div>
-
-        <!-- OPENSHIFT -->
-        <div class="accordion-item">
-            <button class="accordion-header">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openshift/openshift-original.svg">
-                OpenShift
-            </button>
-            <div class="accordion-content">
+            <div class="tech-back">
+                <p>Designing resilient cloud-native infrastructure.</p>
                 <ul>
-                    <li>Cluster operations & project management</li>
-                    <li>Routes, SCC & RBAC configuration</li>
-                    <li>Operator-based platform management</li>
-                    <li>CI/CD integration (STG → PROD)</li>
-                    <li>Security posture awareness & compliance</li>
+                    <li>VPC & networking</li>
+                    <li>EC2 scaling</li>
+                    <li>IAM security</li>
+                    <li>Load balancing</li>
+                    <li>RDS optimization</li>
                 </ul>
             </div>
         </div>
