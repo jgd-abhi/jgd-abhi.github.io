@@ -43,7 +43,7 @@ canvas{
   max-width:900px;
   padding:20px;
   text-align:center;
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
   background:rgba(255,255,255,0.05);
   border-radius:15px;
 }
@@ -53,16 +53,17 @@ canvas{
   right:20px;
   top:20px;
   display:flex;
-  gap:10px;
+  gap:12px;
 }
 
-.controls button{
+.icon-btn{
   background:none;
   border:none;
   cursor:pointer;
+  font-size:18px;
 }
 
-.controls img{
+.icon-btn img{
   width:18px;
   height:18px;
 }
@@ -85,7 +86,7 @@ canvas{
   text-decoration:none;
   font-weight:600;
   transition:0.3s;
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
 .primary{
@@ -100,7 +101,7 @@ canvas{
 
 .btn:hover{
   transform:translateY(-6px);
-  box-shadow:0 15px 30px rgba(0,0,0,0.5);
+  box-shadow:0 18px 35px rgba(0,0,0,0.5);
 }
 
 .stats{
