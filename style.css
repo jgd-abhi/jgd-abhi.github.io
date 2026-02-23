@@ -460,6 +460,7 @@ body.light .tech-intro {
 
 /* ================= FLIP CARDS CLEAN FINAL ================= */
 
+/* Glow overlay */
 .tech-card::after {
   content: "";
   position: absolute;
@@ -473,33 +474,31 @@ body.light .tech-intro {
   );
   opacity: 0;
   transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .tech-card:hover::after {
   opacity: 1;
 }
 
+/* Card container */
 .tech-card {
+  position: relative;
   perspective: 1400px;
-  transform-style: preserve-3d;
-  transition: transform 0.2s ease;
+  height: 270px;
 }
 
-/* Inner flip container */
+/* Inner flip wrapper */
 .card-inner {
   position: relative;
   width: 100%;
-  height: 270px;
+  height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+  transition: transform 0.65s cubic-bezier(.2,.8,.2,1);
 }
 
-.tech-card.flip .card-inner {
-  transform: rotateY(180deg) scale(1.02);
-}
+/* ================= CARD FACES ================= */
 
-
-/* Shared face styling */
 .card-front,
 .card-back {
   position: absolute;
@@ -521,36 +520,69 @@ body.light .tech-intro {
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.06);
-
   box-shadow: 0 25px 45px rgba(0,0,0,0.45);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* BACK (Solid for readability) */
+/* BACK (Solid readable surface) */
 .card-back {
-  transform: rotateY(180deg);
-  text-align: left;
-
   background: var(--card);
   border: 1px solid rgba(255,255,255,0.08);
-
   box-shadow: 0 35px 60px rgba(0,0,0,0.6);
+  text-align: left;
+
+  /* Default rotation for Y flips */
+  transform: rotateY(180deg);
 }
 
-/* Hover lift */
+/* ================= DIRECTIONAL FLIP STATES ================= */
+
+/* LEFT */
+.tech-card.flip-left .card-inner {
+  transform: rotateY(-180deg) scale(1.02);
+}
+
+/* RIGHT */
+.tech-card.flip-right .card-inner {
+  transform: rotateY(180deg) scale(1.02);
+}
+
+/* TOP */
+.tech-card.flip-top .card-inner {
+  transform: rotateX(180deg) scale(1.02);
+}
+.tech-card.flip-top .card-back {
+  transform: rotateX(180deg);
+}
+
+/* BOTTOM */
+.tech-card.flip-bottom .card-inner {
+  transform: rotateX(-180deg) scale(1.02);
+}
+.tech-card.flip-bottom .card-back {
+  transform: rotateX(180deg);
+}
+
+/* ================= HOVER LIFT (DESKTOP ONLY) ================= */
+
 .tech-card:hover .card-front {
-  transform: translateY(-12px) rotateX(4deg);
+  transform: translateY(-8px);
   box-shadow:
-    0 35px 60px rgba(0,0,0,0.6),
-    0 0 25px var(--accent);
+    0 30px 50px rgba(0,0,0,0.55),
+    0 0 18px var(--accent);
   border-color: var(--accent);
 }
 
-/* Icon */
+/* ================= ICON ================= */
+
 .card-front img {
   width: 45px;
   margin-bottom: 16px;
   animation: floatIcon 4s ease-in-out infinite;
 }
+
+/* ================= TITLE ================= */
 
 .card-front h3 {
   font-size: 18px;
@@ -558,7 +590,8 @@ body.light .tech-intro {
   margin-top: 6px;
 }
 
-/* Tagline */
+/* ================= TAGLINE ================= */
+
 .tagline {
   margin-top: 10px;
   font-size: 13px;
@@ -567,9 +600,11 @@ body.light .tech-intro {
   transition: opacity 0.3s ease;
 }
 
-.card-front:hover .tagline {
+.tech-card:hover .tagline {
   opacity: 1;
 }
+
+/* ================= BACK CONTENT ================= */
 
 .card-back ul {
   padding-left: 18px;
@@ -694,7 +729,7 @@ body.light .tech-intro {
 
 @media (max-width: 768px) {
 
-  /* Reduce navbar spacing */
+  /* Navbar */
   .navbar {
     top: 15px;
     width: 94%;
@@ -713,7 +748,11 @@ body.light .tech-intro {
     letter-spacing: 1.5px;
   }
 
-  /* Fix tagline width (IMPORTANT) */
+  /* Hero */
+  main {
+    padding-top: 180px;
+  }
+
   #dynamicTagline {
     min-width: unset;
     width: 100%;
@@ -725,7 +764,6 @@ body.light .tech-intro {
     padding: 0 12px;
   }
 
-  /* Better CTA stacking */
   .cta {
     margin-top: 35px;
     flex-direction: column;
@@ -738,7 +776,7 @@ body.light .tech-intro {
     margin: 10px 0;
   }
 
-  /* Fix stats alignment */
+  /* Stats */
   .stats {
     gap: 40px;
     margin-top: 40px;
@@ -748,7 +786,7 @@ body.light .tech-intro {
     font-size: 26px;
   }
 
-  /* Tech section */
+  /* Tech Section */
   .tech-section {
     padding: 80px 16px;
   }
@@ -760,14 +798,38 @@ body.light .tech-intro {
 
   .card-inner {
     height: 240px;
+    transition: transform 0.45s ease; /* softer flip */
   }
 
   .card-front img {
     width: 36px;
   }
 
-  /* Reduce excessive spacing */
-  main {
-    padding-top: 180px;
+  /* Disable heavy hover effects */
+  .tech-card:hover .card-front {
+    transform: none;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  .card-front:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  }
+
+  /* Reduce glow intensity */
+  .cursor-glow {
+    opacity: 0.06;
+    width: 140px;
+    height: 140px;
+  }
+
+  body::before {
+    opacity: 0.10;
+    filter: blur(90px);
+  }
+
+  /* Disable tilt */
+  .tech-card {
+    transform: none !important;
   }
 }
