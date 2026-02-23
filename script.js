@@ -135,7 +135,6 @@ document.querySelectorAll(".tech-card").forEach(card => {
       translateZ(8px)
     `;
   });
-
   card.addEventListener("mouseleave", () => {
     card.style.transform = `
       perspective(1400px)
@@ -144,7 +143,6 @@ document.querySelectorAll(".tech-card").forEach(card => {
       translateZ(0px)
     `;
   });
-
 });
 
   /* ================= HERO DEPTH PARALLAX ================= */
