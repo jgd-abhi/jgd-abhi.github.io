@@ -1,43 +1,37 @@
-/* ================= DOM READY WRAPPER ================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
+  /* ================= HERO CROSSFADE ================= */
 
-/* ================= HERO CROSSFADE ROTATION ================= */
+  const taglines = [
+    "AWS Infrastructure Architecture",
+    "Kubernetes Platform Engineering",
+    "Secure CI/CD Automation",
+    "OpenShift Enterprise Deployments",
+    "Infrastructure as Code (Terraform)",
+    "Production-Grade Monitoring & Logging"
+  ];
 
-const taglines = [
-  "AWS Infrastructure Architecture",
-  "Kubernetes Platform Engineering",
-  "Secure CI/CD Automation",
-  "OpenShift Enterprise Deployments",
-  "Infrastructure as Code (Terraform)",
-  "Production-Grade Monitoring & Logging"
-];
+  const taglineElement = document.getElementById("dynamicTagline");
+  let index = 0;
 
-const taglineElement = document.getElementById("dynamicTagline");
+  function rotateTagline() {
+    if (!taglineElement) return;
 
-let index = 0;
+    taglineElement.style.opacity = 0;
 
-function rotateTagline() {
-  if (!taglineElement) return;
+    setTimeout(() => {
+      index = (index + 1) % taglines.length;
+      taglineElement.textContent = taglines[index];
+      taglineElement.style.opacity = 1;
+    }, 500);
+  }
 
-  taglineElement.style.opacity = 0;
+  if (taglineElement) {
+    taglineElement.textContent = taglines[0];
+    setInterval(rotateTagline, 3000);
+  }
 
-  setTimeout(() => {
-    index = (index + 1) % taglines.length;
-    taglineElement.textContent = taglines[index];
-    taglineElement.style.opacity = 1;
-  }, 500);
-}
-
-if (taglineElement) {
-  taglineElement.textContent = taglines[0];
-  setInterval(rotateTagline, 3000);
-}
-
-rotateTagline();
-
-  /* ================= PERFORMANCE SAFE RAF ================= */
+  /* ================= RAF THROTTLE ================= */
 
   function rafThrottle(fn) {
     let ticking = false;
@@ -52,29 +46,29 @@ rotateTagline();
     };
   }
 
-  /* ================= THEME + ACCENT ================= */
+  /* ================= THEME TOGGLE ================= */
 
   const themeBtn = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
+
+  if (themeBtn && themeIcon) {
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+
+      if (document.body.classList.contains("light")) {
+        themeIcon.src = "assets/icons/sun.svg";
+      } else {
+        themeIcon.src = "assets/icons/moon.svg";
+      }
+    });
+  }
+
+  /* ================= ACCENT TOGGLE ================= */
+
   const accentBtn = document.getElementById("accentToggle");
   const accentIcon = document.getElementById("accentIcon");
 
   let red = false;
-
-  if (themeBtn) {
-    const themeIcon = document.getElementById("themeIcon");
-
-if (themeBtn && themeIcon) {
-  themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light");
-
-    if (document.body.classList.contains("light")) {
-      themeIcon.src = "assets/icons/sun.svg";
-    } else {
-      themeIcon.src = "assets/icons/moon.svg";
-    }
-  });
-}
-  }
 
   if (accentBtn && accentIcon) {
     accentBtn.addEventListener("click", () => {
@@ -90,64 +84,79 @@ if (themeBtn && themeIcon) {
     });
   }
 
-  
-  /* ================= TRUE DIRECTIONAL READABLE FLIP ================= */
+  /* ================= DIRECTIONAL FLIP ================= */
 
-const cards = document.querySelectorAll(".tech-card");
+  const cards = document.querySelectorAll(".tech-card");
 
-cards.forEach(card => {
-
-  card.addEventListener("click", function (e) {
-
-    // Prevent outside click handler from firing
-    e.stopPropagation();
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const dx = x - rect.width / 2;
-    const dy = y - rect.height / 2;
-
-    // Determine dominant axis
-    let direction;
-
-    if (Math.abs(dx) > Math.abs(dy)) {
-      direction = dx < 0 ? "flip-left" : "flip-right";
-    } else {
-      direction = dy < 0 ? "flip-top" : "flip-bottom";
-    }
-
-    const isAlreadyOpen =
-      card.classList.contains("flip-left") ||
-      card.classList.contains("flip-right") ||
-      card.classList.contains("flip-top") ||
-      card.classList.contains("flip-bottom");
-
-    // Close all cards first
-    cards.forEach(c => {
-      c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom");
-    });
-
-    // If this card wasn't already open → open it
-    if (!isAlreadyOpen) {
-      card.classList.add(direction);
-    }
-  });
-
-});
-
-/* ================= AUTO CLOSE ON OUTSIDE CLICK ================= */
-
-document.addEventListener("click", function (e) {
-
-  if (!e.target.closest(".tech-card")) {
+  function closeAllCards() {
     cards.forEach(c => {
       c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom");
     });
   }
 
-});
+  function getDirection(card, clientX, clientY) {
+    const rect = card.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+
+    const dx = x - rect.width / 2;
+    const dy = y - rect.height / 2;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+      return dx < 0 ? "flip-left" : "flip-right";
+    } else {
+      return dy < 0 ? "flip-top" : "flip-bottom";
+    }
+  }
+
+  cards.forEach(card => {
+
+    /* Desktop click */
+    card.addEventListener("click", function (e) {
+      e.stopPropagation();
+
+      const isAlreadyOpen =
+        card.classList.contains("flip-left") ||
+        card.classList.contains("flip-right") ||
+        card.classList.contains("flip-top") ||
+        card.classList.contains("flip-bottom");
+
+      closeAllCards();
+
+      if (!isAlreadyOpen) {
+        const direction = getDirection(card, e.clientX, e.clientY);
+        card.classList.add(direction);
+      }
+    });
+
+    /* Mobile touch */
+    card.addEventListener("touchstart", function (e) {
+      e.stopPropagation();
+
+      const touch = e.touches[0];
+
+      const isAlreadyOpen =
+        card.classList.contains("flip-left") ||
+        card.classList.contains("flip-right") ||
+        card.classList.contains("flip-top") ||
+        card.classList.contains("flip-bottom");
+
+      closeAllCards();
+
+      if (!isAlreadyOpen) {
+        const direction = getDirection(card, touch.clientX, touch.clientY);
+        card.classList.add(direction);
+      }
+    }, { passive: true });
+
+  });
+
+  /* Auto close outside */
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".tech-card")) {
+      closeAllCards();
+    }
+  });
 
   /* ================= CURSOR GLOW ================= */
 
@@ -160,47 +169,51 @@ document.addEventListener("click", function (e) {
     }));
   }
 
-  /* ================= STRONGER 3D TILT ================= */
+  /* ================= 3D TILT (DESKTOP ONLY) ================= */
 
+  if (window.innerWidth > 768) {
+    cards.forEach(card => {
 
-  if (window.innerWidth > 768){
-    document.querySelectorAll(".tech-card").forEach(card => {
+      card.addEventListener("mousemove", (e) => {
 
-    card.addEventListener("mousemove", (e) => {
+        if (
+          card.classList.contains("flip-left") ||
+          card.classList.contains("flip-right") ||
+          card.classList.contains("flip-top") ||
+          card.classList.contains("flip-bottom")
+        ) return;
 
-    if (card.classList.contains("flip")) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+        const rotateX = -(y - centerY) / 14;
+        const rotateY = (x - centerX) / 14;
 
-    const rotateX = -(y - centerY) / 12;
-    const rotateY = (x - centerX) / 12;
+        card.style.transform = `
+          perspective(1400px)
+          rotateX(${rotateX}deg)
+          rotateY(${rotateY}deg)
+          translateZ(6px)
+        `;
+      });
 
-    card.style.transform = `
-      perspective(1400px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      translateZ(8px)
-    `;
-  });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = `
+          perspective(1400px)
+          rotateX(0deg)
+          rotateY(0deg)
+          translateZ(0px)
+        `;
+      });
 
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = `
-      perspective(1400px)
-      rotateX(0deg)
-      rotateY(0deg)
-      translateZ(0px)
-    `;
     });
+  }
 
-  });
-}
-
-  /* ================= HERO DEPTH PARALLAX ================= */
+  /* ================= HERO PARALLAX ================= */
 
   const hero = document.querySelector(".hero");
 
