@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+
 /* ================= HERO CROSSFADE ROTATION ================= */
 
 const taglines = [
@@ -89,15 +90,64 @@ if (themeBtn && themeIcon) {
     });
   }
 
-  /* ================= FLIP CARDS ================= */
+  
+  /* ================= TRUE DIRECTIONAL READABLE FLIP ================= */
 
-  const cards = document.querySelectorAll(".tech-card");
+const cards = document.querySelectorAll(".tech-card");
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      card.classList.toggle("flip");
+cards.forEach(card => {
+
+  card.addEventListener("click", function (e) {
+
+    // Prevent outside click handler from firing
+    e.stopPropagation();
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const dx = x - rect.width / 2;
+    const dy = y - rect.height / 2;
+
+    // Determine dominant axis
+    let direction;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+      direction = dx < 0 ? "flip-left" : "flip-right";
+    } else {
+      direction = dy < 0 ? "flip-top" : "flip-bottom";
+    }
+
+    const isAlreadyOpen =
+      card.classList.contains("flip-left") ||
+      card.classList.contains("flip-right") ||
+      card.classList.contains("flip-top") ||
+      card.classList.contains("flip-bottom");
+
+    // Close all cards first
+    cards.forEach(c => {
+      c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom");
     });
+
+    // If this card wasn't already open → open it
+    if (!isAlreadyOpen) {
+      card.classList.add(direction);
+    }
   });
+
+});
+
+/* ================= AUTO CLOSE ON OUTSIDE CLICK ================= */
+
+document.addEventListener("click", function (e) {
+
+  if (!e.target.closest(".tech-card")) {
+    cards.forEach(c => {
+      c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom");
+    });
+  }
+
+});
 
   /* ================= CURSOR GLOW ================= */
 
@@ -112,9 +162,11 @@ if (themeBtn && themeIcon) {
 
   /* ================= STRONGER 3D TILT ================= */
 
-document.querySelectorAll(".tech-card").forEach(card => {
 
-  card.addEventListener("mousemove", (e) => {
+  if (window.innerWidth > 768){
+    document.querySelectorAll(".tech-card").forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
 
     if (card.classList.contains("flip")) return;
 
@@ -135,6 +187,7 @@ document.querySelectorAll(".tech-card").forEach(card => {
       translateZ(8px)
     `;
   });
+
   card.addEventListener("mouseleave", () => {
     card.style.transform = `
       perspective(1400px)
@@ -142,8 +195,10 @@ document.querySelectorAll(".tech-card").forEach(card => {
       rotateY(0deg)
       translateZ(0px)
     `;
+    });
+
   });
-});
+}
 
   /* ================= HERO DEPTH PARALLAX ================= */
 
