@@ -239,3 +239,22 @@ orbitItems.forEach(item => {
   });
 
 });
+
+
+/* ================= ORBIT AUTO POSITION ================= */
+
+const orbitItems = document.querySelectorAll(".orbit-item");
+const total = orbitItems.length;
+const radius = 140;
+
+orbitItems.forEach((item, i) => {
+  const angle = (i / total) * (2 * Math.PI);
+
+  const x = Math.cos(angle) * radius;
+  const y = Math.sin(angle) * radius;
+
+  item.style.transform = `
+    translate(-50%, -50%)
+    translate(${x}px, ${y}px)
+  `;
+});
