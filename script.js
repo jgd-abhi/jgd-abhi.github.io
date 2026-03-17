@@ -258,3 +258,66 @@ orbitItems.forEach((item, i) => {
     translate(${x}px, ${y}px)
   `;
 });
+
+
+/* ================= ORBIT POSITION ================= */
+
+const items = document.querySelectorAll(".orbit-item");
+const total = items.length;
+const radius = 200;
+
+items.forEach((item, i) => {
+  const angle = (i / total) * (2 * Math.PI);
+
+  const x = Math.cos(angle) * radius;
+  const y = Math.sin(angle) * radius;
+
+  item.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+});
+
+/* ================= DATA ================= */
+
+const techData = {
+  "Kubernetes": ["Deployments","Ingress","RBAC","Scaling","Helm"],
+  "AWS": ["VPC","EC2","IAM","RDS","HA"],
+  "Docker": ["Images","Containers","Networking","Debugging","Optimization"],
+  "Terraform": ["Modules","State","Provision","IaC","Automation"],
+  "Prometheus": ["Metrics","Scraping","Alerts","K8s","Monitoring"],
+  "Grafana": ["Dashboards","Alerts","Visualization","Metrics","Logs"],
+  "Python": ["Scripting","Automation","APIs","Parsing","DevOps"],
+  "AI": ["LLM","Automation","Debug","Agents","Prompting"],
+  "AIOps": ["Anomaly","Events","Alerts","Prediction","Insights"]
+};
+
+/* ================= POPUP ================= */
+
+const popup = document.getElementById("techPopup");
+
+items.forEach(item => {
+
+  item.addEventListener("click", (e) => {
+
+    const tech = item.dataset.tech;
+    const data = techData[tech] || ["Tooling","Integration","Automation","Ops","Scaling"];
+
+    popup.innerHTML = `
+      <h4>${tech}</h4>
+      <ul>
+        ${data.map(i => `<li>${i}</li>`).join("")}
+      </ul>
+    `;
+
+    popup.style.left = e.clientX + 20 + "px";
+    popup.style.top = e.clientY + 20 + "px";
+
+    popup.classList.add("active");
+  });
+
+});
+
+/* close popup */
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".orbit-item")) {
+    popup.classList.remove("active");
+  }
+});
