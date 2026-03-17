@@ -17,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
   function rotateTagline() {
     if (!taglineElement) return;
 
-    taglineElement.style.opacity = "0";
+    taglineElement.style.opacity = 0;
 
     setTimeout(() => {
       index = (index + 1) % taglines.length;
       taglineElement.textContent = taglines[index];
-      taglineElement.style.opacity = "1";
-    }, 400);
+      taglineElement.style.opacity = 1;
+    }, 500);
   }
 
   if (taglineElement) {
     taglineElement.textContent = taglines[0];
-    setInterval(rotateTagline, 2800);
+    setInterval(rotateTagline, 3000);
   }
 
   /* ================= RAF THROTTLE ================= */
@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
     themeBtn.addEventListener("click", () => {
       document.body.classList.toggle("light");
 
-      const isLight = document.body.classList.contains("light");
-
-      themeIcon.src = isLight
-        ? "assets/icons/sun.svg"
-        : "assets/icons/moon.svg";
+      if (document.body.classList.contains("light")) {
+        themeIcon.src = "assets/icons/sun.svg";
+      } else {
+        themeIcon.src = "assets/icons/moon.svg";
+      }
     });
   }
 
@@ -84,26 +84,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ================= CARD FLIP ================= */
+  /* ================= DIRECTIONAL FLIP ================= */
 
   const cards = document.querySelectorAll(".tech-card");
 
   function closeAllCards() {
-    cards.forEach(c =>
-      c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom")
-    );
-  }
-
-  function isFlipped(card) {
-    return ["flip-left", "flip-right", "flip-top", "flip-bottom"]
-      .some(cls => card.classList.contains(cls));
+    cards.forEach(c => {
+      c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom");
+    });
   }
 
   function getDirection(card, clientX, clientY) {
     const rect = card.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
 
-    const dx = clientX - (rect.left + rect.width / 2);
-    const dy = clientY - (rect.top + rect.height / 2);
+    const dx = x - rect.width / 2;
+    const dy = y - rect.height / 2;
 
     if (Math.abs(dx) > Math.abs(dy)) {
       return dx < 0 ? "flip-left" : "flip-right";
@@ -112,51 +109,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* DESKTOP CLICK */
-
   cards.forEach(card => {
+
+    /* Desktop click */
     card.addEventListener("click", function (e) {
       e.stopPropagation();
 
-      const alreadyOpen = isFlipped(card);
+      const isAlreadyOpen =
+        card.classList.contains("flip-left") ||
+        card.classList.contains("flip-right") ||
+        card.classList.contains("flip-top") ||
+        card.classList.contains("flip-bottom");
 
       closeAllCards();
 
-      if (!alreadyOpen) {
-        const dir = getDirection(card, e.clientX, e.clientY);
-        card.classList.add(dir);
+      if (!isAlreadyOpen) {
+        const direction = getDirection(card, e.clientX, e.clientY);
+        card.classList.add(direction);
       }
     });
-  });
 
-  /* MOBILE TOUCH (no double trigger) */
-
-  let touched = false;
-
-  cards.forEach(card => {
+    /* Mobile touch */
     card.addEventListener("touchstart", function (e) {
-      touched = true;
+      e.stopPropagation();
 
       const touch = e.touches[0];
-      const alreadyOpen = isFlipped(card);
+
+      const isAlreadyOpen =
+        card.classList.contains("flip-left") ||
+        card.classList.contains("flip-right") ||
+        card.classList.contains("flip-top") ||
+        card.classList.contains("flip-bottom");
 
       closeAllCards();
 
-      if (!alreadyOpen) {
-        const dir = getDirection(card, touch.clientX, touch.clientY);
-        card.classList.add(dir);
+      if (!isAlreadyOpen) {
+        const direction = getDirection(card, touch.clientX, touch.clientY);
+        card.classList.add(direction);
       }
     }, { passive: true });
+
   });
 
-  /* PREVENT CLICK AFTER TOUCH */
-
+  /* Auto close outside */
   document.addEventListener("click", function (e) {
-    if (touched) {
-      touched = false;
-      return;
-    }
-
     if (!e.target.closest(".tech-card")) {
       closeAllCards();
     }
@@ -166,39 +162,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const glow = document.querySelector(".cursor-glow");
 
-  if (glow && window.innerWidth > 768) {
+  if (glow) {
     document.addEventListener("mousemove", rafThrottle((e) => {
       glow.style.left = e.clientX + "px";
       glow.style.top = e.clientY + "px";
     }));
   }
 
-  /* ================= 3D TILT ================= */
+  /* ================= 3D TILT (DESKTOP ONLY) ================= */
 
   if (window.innerWidth > 768) {
     cards.forEach(card => {
 
       card.addEventListener("mousemove", (e) => {
 
-        if (isFlipped(card)) return;
+        if (
+          card.classList.contains("flip-left") ||
+          card.classList.contains("flip-right") ||
+          card.classList.contains("flip-top") ||
+          card.classList.contains("flip-bottom")
+        ) return;
 
         const rect = card.getBoundingClientRect();
-
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const rotateX = -(y - rect.height / 2) / 18;
-        const rotateY = (x - rect.width / 2) / 18;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = -(y - centerY) / 14;
+        const rotateY = (x - centerX) / 14;
 
         card.style.transform = `
-          perspective(1200px)
+          perspective(1400px)
           rotateX(${rotateX}deg)
           rotateY(${rotateY}deg)
+          translateZ(6px)
         `;
       });
 
       card.addEventListener("mouseleave", () => {
-        card.style.transform = "perspective(1200px) rotateX(0) rotateY(0)";
+        card.style.transform = `
+          perspective(1400px)
+          rotateX(0deg)
+          rotateY(0deg)
+          translateZ(0px)
+        `;
       });
 
     });
@@ -210,114 +219,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (hero) {
     window.addEventListener("scroll", rafThrottle(() => {
-      hero.style.transform = `translateY(${window.scrollY * 0.04}px)`;
+      const offset = window.scrollY * 0.05;
+      hero.style.transform = `translateY(${offset}px)`;
     }));
   }
 
-});
-
-/* ================= ELITE ORBIT ================= */
-
-const orbitItems = document.querySelectorAll(".orbit-item");
-const orbitCenter = document.getElementById("orbitCenter");
-
-orbitItems.forEach(item => {
-
-  item.addEventListener("click", () => {
-
-    const tech = item.getAttribute("data-tech");
-
-    orbitCenter.innerHTML = `<h3>${tech}</h3>`;
-
-    // Add glow effect
-    orbitCenter.classList.add("glow-accent");
-
-    setTimeout(() => {
-      orbitCenter.classList.remove("glow-accent");
-    }, 800);
-
-  });
-
-});
-
-
-/* ================= ORBIT AUTO POSITION ================= */
-
-const orbitItems = document.querySelectorAll(".orbit-item");
-const total = orbitItems.length;
-const radius = 140;
-
-orbitItems.forEach((item, i) => {
-  const angle = (i / total) * (2 * Math.PI);
-
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
-
-  item.style.transform = `
-    translate(-50%, -50%)
-    translate(${x}px, ${y}px)
-  `;
-});
-
-
-/* ================= ORBIT POSITION ================= */
-
-const items = document.querySelectorAll(".orbit-item");
-const total = items.length;
-const radius = 200;
-
-items.forEach((item, i) => {
-  const angle = (i / total) * (2 * Math.PI);
-
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
-
-  item.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
-});
-
-/* ================= DATA ================= */
-
-const techData = {
-  "Kubernetes": ["Deployments","Ingress","RBAC","Scaling","Helm"],
-  "AWS": ["VPC","EC2","IAM","RDS","HA"],
-  "Docker": ["Images","Containers","Networking","Debugging","Optimization"],
-  "Terraform": ["Modules","State","Provision","IaC","Automation"],
-  "Prometheus": ["Metrics","Scraping","Alerts","K8s","Monitoring"],
-  "Grafana": ["Dashboards","Alerts","Visualization","Metrics","Logs"],
-  "Python": ["Scripting","Automation","APIs","Parsing","DevOps"],
-  "AI": ["LLM","Automation","Debug","Agents","Prompting"],
-  "AIOps": ["Anomaly","Events","Alerts","Prediction","Insights"]
-};
-
-/* ================= POPUP ================= */
-
-const popup = document.getElementById("techPopup");
-
-items.forEach(item => {
-
-  item.addEventListener("click", (e) => {
-
-    const tech = item.dataset.tech;
-    const data = techData[tech] || ["Tooling","Integration","Automation","Ops","Scaling"];
-
-    popup.innerHTML = `
-      <h4>${tech}</h4>
-      <ul>
-        ${data.map(i => `<li>${i}</li>`).join("")}
-      </ul>
-    `;
-
-    popup.style.left = e.clientX + 20 + "px";
-    popup.style.top = e.clientY + 20 + "px";
-
-    popup.classList.add("active");
-  });
-
-});
-
-/* close popup */
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".orbit-item")) {
-    popup.classList.remove("active");
-  }
 });
