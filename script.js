@@ -17,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
   function rotateTagline() {
     if (!taglineElement) return;
 
-    taglineElement.style.opacity = 0;
+    taglineElement.style.opacity = "0";
 
     setTimeout(() => {
       index = (index + 1) % taglines.length;
       taglineElement.textContent = taglines[index];
-      taglineElement.style.opacity = 1;
-    }, 500);
+      taglineElement.style.opacity = "1";
+    }, 400);
   }
 
   if (taglineElement) {
     taglineElement.textContent = taglines[0];
-    setInterval(rotateTagline, 3000);
+    setInterval(rotateTagline, 2800);
   }
 
   /* ================= RAF THROTTLE ================= */
@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
     themeBtn.addEventListener("click", () => {
       document.body.classList.toggle("light");
 
-      if (document.body.classList.contains("light")) {
-        themeIcon.src = "assets/icons/sun.svg";
-      } else {
-        themeIcon.src = "assets/icons/moon.svg";
-      }
+      const isLight = document.body.classList.contains("light");
+
+      themeIcon.src = isLight
+        ? "assets/icons/sun.svg"
+        : "assets/icons/moon.svg";
     });
   }
 
@@ -84,23 +84,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ================= DIRECTIONAL FLIP ================= */
+  /* ================= CARD FLIP ================= */
 
   const cards = document.querySelectorAll(".tech-card");
 
   function closeAllCards() {
-    cards.forEach(c => {
-      c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom");
-    });
+    cards.forEach(c =>
+      c.classList.remove("flip-left", "flip-right", "flip-top", "flip-bottom")
+    );
+  }
+
+  function isFlipped(card) {
+    return ["flip-left", "flip-right", "flip-top", "flip-bottom"]
+      .some(cls => card.classList.contains(cls));
   }
 
   function getDirection(card, clientX, clientY) {
     const rect = card.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
 
-    const dx = x - rect.width / 2;
-    const dy = y - rect.height / 2;
+    const dx = clientX - (rect.left + rect.width / 2);
+    const dy = clientY - (rect.top + rect.height / 2);
 
     if (Math.abs(dx) > Math.abs(dy)) {
       return dx < 0 ? "flip-left" : "flip-right";
@@ -109,50 +112,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  cards.forEach(card => {
+  /* DESKTOP CLICK */
 
-    /* Desktop click */
+  cards.forEach(card => {
     card.addEventListener("click", function (e) {
       e.stopPropagation();
 
-      const isAlreadyOpen =
-        card.classList.contains("flip-left") ||
-        card.classList.contains("flip-right") ||
-        card.classList.contains("flip-top") ||
-        card.classList.contains("flip-bottom");
+      const alreadyOpen = isFlipped(card);
 
       closeAllCards();
 
-      if (!isAlreadyOpen) {
-        const direction = getDirection(card, e.clientX, e.clientY);
-        card.classList.add(direction);
+      if (!alreadyOpen) {
+        const dir = getDirection(card, e.clientX, e.clientY);
+        card.classList.add(dir);
       }
     });
+  });
 
-    /* Mobile touch */
+  /* MOBILE TOUCH (no double trigger) */
+
+  let touched = false;
+
+  cards.forEach(card => {
     card.addEventListener("touchstart", function (e) {
-      e.stopPropagation();
+      touched = true;
 
       const touch = e.touches[0];
-
-      const isAlreadyOpen =
-        card.classList.contains("flip-left") ||
-        card.classList.contains("flip-right") ||
-        card.classList.contains("flip-top") ||
-        card.classList.contains("flip-bottom");
+      const alreadyOpen = isFlipped(card);
 
       closeAllCards();
 
-      if (!isAlreadyOpen) {
-        const direction = getDirection(card, touch.clientX, touch.clientY);
-        card.classList.add(direction);
+      if (!alreadyOpen) {
+        const dir = getDirection(card, touch.clientX, touch.clientY);
+        card.classList.add(dir);
       }
     }, { passive: true });
-
   });
 
-  /* Auto close outside */
+  /* PREVENT CLICK AFTER TOUCH */
+
   document.addEventListener("click", function (e) {
+    if (touched) {
+      touched = false;
+      return;
+    }
+
     if (!e.target.closest(".tech-card")) {
       closeAllCards();
     }
@@ -162,52 +166,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const glow = document.querySelector(".cursor-glow");
 
-  if (glow) {
+  if (glow && window.innerWidth > 768) {
     document.addEventListener("mousemove", rafThrottle((e) => {
       glow.style.left = e.clientX + "px";
       glow.style.top = e.clientY + "px";
     }));
   }
 
-  /* ================= 3D TILT (DESKTOP ONLY) ================= */
+  /* ================= 3D TILT ================= */
 
   if (window.innerWidth > 768) {
     cards.forEach(card => {
 
       card.addEventListener("mousemove", (e) => {
 
-        if (
-          card.classList.contains("flip-left") ||
-          card.classList.contains("flip-right") ||
-          card.classList.contains("flip-top") ||
-          card.classList.contains("flip-bottom")
-        ) return;
+        if (isFlipped(card)) return;
 
         const rect = card.getBoundingClientRect();
+
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = -(y - centerY) / 14;
-        const rotateY = (x - centerX) / 14;
+        const rotateX = -(y - rect.height / 2) / 18;
+        const rotateY = (x - rect.width / 2) / 18;
 
         card.style.transform = `
-          perspective(1400px)
+          perspective(1200px)
           rotateX(${rotateX}deg)
           rotateY(${rotateY}deg)
-          translateZ(6px)
         `;
       });
 
       card.addEventListener("mouseleave", () => {
-        card.style.transform = `
-          perspective(1400px)
-          rotateX(0deg)
-          rotateY(0deg)
-          translateZ(0px)
-        `;
+        card.style.transform = "perspective(1200px) rotateX(0) rotateY(0)";
       });
 
     });
@@ -219,8 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (hero) {
     window.addEventListener("scroll", rafThrottle(() => {
-      const offset = window.scrollY * 0.05;
-      hero.style.transform = `translateY(${offset}px)`;
+      hero.style.transform = `translateY(${window.scrollY * 0.04}px)`;
     }));
   }
 
