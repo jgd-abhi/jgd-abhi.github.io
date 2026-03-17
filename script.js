@@ -215,3 +215,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
+/* ================= ELITE ORBIT ================= */
+
+const orbitItems = document.querySelectorAll(".orbit-item");
+const orbitCenter = document.getElementById("orbitCenter");
+
+orbitItems.forEach(item => {
+
+  item.addEventListener("click", () => {
+
+    const tech = item.getAttribute("data-tech");
+
+    orbitCenter.innerHTML = `<h3>${tech}</h3>`;
+
+    // Add glow effect
+    orbitCenter.classList.add("glow-accent");
+
+    setTimeout(() => {
+      orbitCenter.classList.remove("glow-accent");
+    }, 800);
+
+  });
+
+});
